@@ -473,34 +473,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 3178830617081051558, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
-      propertyPath: spawnMaxFloor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178830617081051558, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
-      propertyPath: spawnMaxStart
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178830617081051558, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
-      propertyPath: spawnMinFloor
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178830617081051558, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
-      propertyPath: spawnMinStart
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178830617081051558, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
-      propertyPath: spawnRateIncrease
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178830617081051558, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
-      propertyPath: enemies.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178830617081051558, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
-      propertyPath: enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 8622271484622847316, guid: e32db7a5167c8da429db516282c2588a, type: 3}
     - target: {fileID: 3178830617081051559, guid: c227a5677da20334d82b5ced26c492b6, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -558,6 +530,18 @@ PrefabInstance:
       propertyPath: distanceText
       value: 
       objectReference: {fileID: 841573724}
+    - target: {fileID: 4678520520338929184, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: gravity
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678520520338929185, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678520520338929185, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4678520520338929187, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -606,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hippo Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 4678520521735466074, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6235077770868514917, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: fuelText
       value: 
@@ -650,10 +638,6 @@ PrefabInstance:
     - target: {fileID: 5785767946501124435, guid: a875f5c11fabea5469c6d13de34aa4c0, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5785767946501124435, guid: a875f5c11fabea5469c6d13de34aa4c0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 18.368309
       objectReference: {fileID: 0}
     - target: {fileID: 5785767946501124435, guid: a875f5c11fabea5469c6d13de34aa4c0, type: 3}
       propertyPath: m_LocalPosition.x

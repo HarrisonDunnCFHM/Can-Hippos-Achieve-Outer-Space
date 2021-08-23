@@ -129,6 +129,9 @@ MonoBehaviour:
   emptyCapsule: {fileID: 8146861109180275480, guid: d6ad7a8137cf8924b90dfffeca6f2ae4, type: 3}
   health: 3
   numberOfCapsules: 3
+  invulnerableCoolDown: 1
+  invulnerable: 0
+  invulnerableTimer: 0
 --- !u!114 &6235077770868514917
 MonoBehaviour:
   m_ObjectHideFlags: 0

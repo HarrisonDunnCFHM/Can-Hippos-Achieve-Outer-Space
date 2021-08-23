@@ -11,6 +11,7 @@ public class HippoRocket : MonoBehaviour
     [SerializeField] float yTopScreenPadding = 3f;
     [SerializeField] float yBotScreenPadding = 1f;
     [SerializeField] GameObject myEngines;
+    [SerializeField] float gravity;
     
 
 
@@ -56,6 +57,8 @@ public class HippoRocket : MonoBehaviour
     void Update()
     {
         ControlShip();
+        transform.position = new Vector2(transform.position.x, transform.position.y - gravity);
+
     }
 
     private void ControlShip()

@@ -45,7 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 2315114626181489283, guid: 8be30e89a55332746a48f9ea1da8a698, type: 3}
+  - {fileID: 8622271484622847316, guid: e32db7a5167c8da429db516282c2588a, type: 3}
   hazards: []
-  spawnMin: 1
-  spawnMax: 2
+  spawnMinStart: 2
+  spawnMaxStart: 8
+  spawnRateIncrease: 0.9
+  spawnMinFloor: 0.5
+  spawnMaxFloor: 1
   screenPadding: 1
+  spawnTimer: 0
