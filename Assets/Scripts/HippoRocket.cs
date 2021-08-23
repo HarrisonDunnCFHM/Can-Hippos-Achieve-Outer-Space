@@ -44,6 +44,14 @@ public class HippoRocket : MonoBehaviour
         myHealth.TakeHit();
     }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        myHealth.TakeHit();
+
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {

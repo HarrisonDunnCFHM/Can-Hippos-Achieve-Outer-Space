@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeedBase: 10
   xScreenPadding: 1
-  yTopScreenPadding: 5
+  yTopScreenPadding: 0.25
   yBotScreenPadding: 1.5
   myEngines: {fileID: 4678520521735466079}
 --- !u!114 &7391128746506255737
@@ -190,7 +190,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

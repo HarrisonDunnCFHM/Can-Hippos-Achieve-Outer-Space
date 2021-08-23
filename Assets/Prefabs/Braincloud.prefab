@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8622271484622847307}
   - component: {fileID: 8622271484622847306}
   - component: {fileID: 8622271484622847317}
-  - component: {fileID: 4434729719681789289}
+  - component: {fileID: 7929719001496336579}
   - component: {fileID: 4718175412586744052}
   - component: {fileID: 7317866100939749868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Braincloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4434729719681789289
+--- !u!114 &7929719001496336579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,10 +114,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8622271484622847316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b24cf71c10b73749891380b1dc1822c, type: 3}
+  m_Script: {fileID: 11500000, guid: 93e187f9c7dfdbf4f9ae4161e95588ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
+  attackRange: 1
 --- !u!60 &4718175412586744052
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

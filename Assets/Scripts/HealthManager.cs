@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class HealthManager : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class HealthManager : MonoBehaviour
     [SerializeField] Sprite emptyCapsule;
     public int health;
     public int numberOfCapsules;
+    [SerializeField] float invulnerableCoolDown = 1f;
 
     //cached references
     HippoRocket hippoRocket;
     Fuel fuel;
+    [SerializeField] bool invulnerable;
+    [SerializeField] float invulnerableTimer;
     
     
     // Start is called before the first frame update
@@ -23,16 +27,20 @@ public class HealthManager : MonoBehaviour
     {
         hippoRocket = GetComponent<HippoRocket>();
         fuel = GetComponent<Fuel>();
+        invulnerable = false;
+        invulnerableTimer = invulnerableCoolDown;
     }
 
     public void TakeHit()
     {
+        if (invulnerable) { return; }
         health--;
         if(health <= 0)
         {
             hippoRocket.StopEngines();
             fuel.OutOfFuel();
         }
+        invulnerable = true;
     }
 
     public void ResetLevel()
@@ -73,5 +81,21 @@ public class HealthManager : MonoBehaviour
             }
             else { healthCapsules[i].enabled = false; }
         }
+        InvulnerabilityReset();
+    }
+
+    private void InvulnerabilityReset()
+    {
+        if (!invulnerable) { return; }
+        if (invulnerable)
+        {
+            invulnerableTimer -= Time.deltaTime;
+        }
+        if (invulnerableTimer <=0 )
+        {
+            invulnerable = false;
+            invulnerableTimer = invulnerableCoolDown;
+        }
+
     }
 }

@@ -1,24 +1,21 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dragon : MonoBehaviour
+public class Braincloud : MonoBehaviour
 {
     //config params
     [SerializeField] float moveSpeed;
-    [SerializeField] GameObject myFireBreather;
     [SerializeField] float attackRange = 1f;
 
     //cached references
     HippoRocket hippoRocket;
     bool fireShot;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         hippoRocket = FindObjectOfType<HippoRocket>();
-        myFireBreather.SetActive(false);
         fireShot = false;
     }
 
@@ -27,19 +24,9 @@ public class Dragon : MonoBehaviour
     {
         Move();
         FacePlayer();
-        ShootFire();
     }
 
-    private void ShootFire()
-    {
-        if (fireShot) { return; }
-        var distToRocket = transform.position.y - hippoRocket.transform.position.y;
-        if (Mathf.Abs(distToRocket) < attackRange)
-        {
-            myFireBreather.SetActive(true);
-            fireShot = true;
-        }
-    }
+
 
     private void FacePlayer()
     {

@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -372,54 +372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1307491774
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1307491776}
-  - component: {fileID: 1307491775}
-  m_Layer: 0
-  m_Name: Health Bar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1307491775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307491774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67857d52ebe2ef4a8436873c62d72a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthCapsules: []
-  fullCapsule: {fileID: 0}
-  emptyCapsule: {fileID: 0}
-  health: 0
-  numberOfCapsules: 0
---- !u!4 &1307491776
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307491774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7095263, y: -0.8124445, z: -0.3996314}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1411667861 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8954466132164678876, guid: dccf7070264fc4c4a896aa5bce76a5f6, type: 3}
@@ -470,11 +422,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2315114626181489284, guid: 8be30e89a55332746a48f9ea1da8a698, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.57
+      value: -5.46
       objectReference: {fileID: 0}
     - target: {fileID: 2315114626181489284, guid: 8be30e89a55332746a48f9ea1da8a698, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.54
+      value: 3.24
       objectReference: {fileID: 0}
     - target: {fileID: 2315114626181489284, guid: 8be30e89a55332746a48f9ea1da8a698, type: 3}
       propertyPath: m_LocalPosition.z
@@ -606,10 +558,6 @@ PrefabInstance:
       propertyPath: distanceText
       value: 
       objectReference: {fileID: 841573724}
-    - target: {fileID: 4678520520338929184, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
-      propertyPath: yTopScreenPadding
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 4678520520338929187, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -839,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8954466132422416420, guid: dccf7070264fc4c4a896aa5bce76a5f6, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8954466132422416420, guid: dccf7070264fc4c4a896aa5bce76a5f6, type: 3}
       propertyPath: m_AnchorMax.x
