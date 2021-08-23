@@ -598,10 +598,6 @@ PrefabInstance:
       propertyPath: distanceText
       value: 
       objectReference: {fileID: 841573724}
-    - target: {fileID: 3481982816269480469, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
-      propertyPath: baseMoveSpeed
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 4678520520338929187, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -658,14 +654,6 @@ PrefabInstance:
       propertyPath: fuelSlider
       value: 
       objectReference: {fileID: 8954466133572141899}
-    - target: {fileID: 6235077770868514917, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
-      propertyPath: fuelBurnRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7391128746506255737, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
-      propertyPath: numberOfCapsules
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7391128746506255737, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: healthCapsules.Array.data[0]
       value: 

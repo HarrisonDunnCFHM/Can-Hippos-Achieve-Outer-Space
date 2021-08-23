@@ -128,7 +128,7 @@ MonoBehaviour:
   fullCapsule: {fileID: -2400629793316721912, guid: d6ad7a8137cf8924b90dfffeca6f2ae4, type: 3}
   emptyCapsule: {fileID: 8146861109180275480, guid: d6ad7a8137cf8924b90dfffeca6f2ae4, type: 3}
   health: 3
-  numberOfCapsules: 6
+  numberOfCapsules: 3
 --- !u!114 &6235077770868514917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuelMax: 100
-  fuelBurnRate: 1
+  fuelBurnRate: 1.1
   fuelSlider: {fileID: 0}
   fuelText: {fileID: 0}
 --- !u!114 &3481982816269480469
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceText: {fileID: 0}
-  baseMoveSpeed: 10
+  baseMoveSpeed: 50
 --- !u!50 &4678520520338929185
 Rigidbody2D:
   serializedVersion: 4
