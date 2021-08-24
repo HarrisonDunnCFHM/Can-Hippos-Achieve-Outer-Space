@@ -44,6 +44,15 @@ TagManager:
   - name: Background
     uniqueID: 2351917787
     locked: 0
+  - name: Obstacles
+    uniqueID: 2361351383
+    locked: 0
+  - name: Enemy Effects
+    uniqueID: 63912675
+    locked: 0
+  - name: Enemies
+    uniqueID: 1682227353
+    locked: 0
   - name: Player
     uniqueID: 1275497389
     locked: 0

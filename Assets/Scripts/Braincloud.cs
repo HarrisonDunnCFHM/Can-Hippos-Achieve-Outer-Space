@@ -7,40 +7,75 @@ public class Braincloud : MonoBehaviour
     //config params
     [SerializeField] float moveSpeed;
     [SerializeField] float attackRange = 1f;
+    [SerializeField] GameObject brainLightning;
+    [SerializeField] GameObject brainSpark;
+    [SerializeField] float attackCooldown;
+    [SerializeField] float attackDuration;
 
     //cached references
     HippoRocket hippoRocket;
-    bool fireShot;
+    float attackRangeSqr;
+    bool isAttacking;
+    bool chargingUp;
+    bool sparkReady;
 
     // Start is called before the first frame update
     void Start()
     {
         hippoRocket = FindObjectOfType<HippoRocket>();
-        fireShot = false;
+        isAttacking = false;
+        sparkReady = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        FacePlayer();
+        Attack();
     }
 
-
-
-    private void FacePlayer()
+    private void Attack()
     {
-        var distToRocket = transform.position.x - hippoRocket.transform.position.x;
-        if (distToRocket > 0 && transform.localScale.x > 0)
+        var playerDistance = Vector2.SqrMagnitude(transform.position - hippoRocket.transform.position);
+        attackRangeSqr = attackRange * attackRange;
+        if ( playerDistance <= attackRange && !isAttacking)
         {
-            var newFace = transform.localScale.x * -1;
-            transform.localScale = new Vector2(newFace, transform.localScale.y);
+            StartCoroutine(FireAttack());
         }
-        if (distToRocket < 0 && transform.localScale.x < 0)
+        if(chargingUp && sparkReady)
         {
-            var newFace = transform.localScale.x * -1;
-            transform.localScale = new Vector2(newFace, transform.localScale.y);
+            StartCoroutine(Spark());
         }
+
+    }
+
+    private IEnumerator Spark()
+    {
+        var spark = Instantiate(brainSpark, transform.position, Quaternion.identity);
+        spark.transform.parent = gameObject.transform;
+        var randomX = Random.Range(-360f, 360f);
+        var randomY = Random.Range(-360f, 360f);
+        spark.transform.rotation = new Quaternion(randomX, randomY, 0, 0);
+        sparkReady = false;
+        var randomTime = Random.Range(0.01f, 0.1f);
+        yield return new WaitForSeconds(randomTime);
+        sparkReady = true;
+        while (chargingUp) { yield return null; }
+        Destroy(spark);
+    }
+
+    private IEnumerator FireAttack()
+    {
+        isAttacking = true;
+        chargingUp = true;
+        yield return new WaitForSeconds(attackCooldown);
+        chargingUp = false;
+        var newAttack = Instantiate(brainLightning, transform.position, Quaternion.identity);
+        newAttack.transform.parent = gameObject.transform;
+        yield return new WaitForSeconds(attackDuration);
+        Destroy(newAttack);
+        isAttacking = false;
+        yield return null;
     }
 
     private void Move()

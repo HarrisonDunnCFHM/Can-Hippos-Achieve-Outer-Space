@@ -25,7 +25,7 @@ public class DistanceTracker : MonoBehaviour
         if (ascending)
         {
             currentDistance += baseMoveSpeed * Time.deltaTime;
-            distanceText.text = currentDistance.ToString("F1") + " feet traveled.";
+            distanceText.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
         }
         else
         {
