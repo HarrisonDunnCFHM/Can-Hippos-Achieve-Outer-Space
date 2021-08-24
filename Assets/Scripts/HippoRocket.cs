@@ -57,7 +57,7 @@ public class HippoRocket : MonoBehaviour
     void Update()
     {
         ControlShip();
-        transform.position = new Vector2(transform.position.x, transform.position.y - gravity);
+        transform.position = new Vector2(transform.position.x, transform.position.y - (gravity * Time.deltaTime));
 
     }
 
