@@ -18,8 +18,9 @@ public class HealthManager : MonoBehaviour
     //cached references
     HippoRocket hippoRocket;
     Fuel fuel;
-    [SerializeField] bool invulnerable;
-    [SerializeField] float invulnerableTimer;
+    bool invulnerable;
+    float invulnerableTimer;
+    Animator myAnimator;
     
     
     // Start is called before the first frame update
@@ -29,12 +30,14 @@ public class HealthManager : MonoBehaviour
         fuel = GetComponent<Fuel>();
         invulnerable = false;
         invulnerableTimer = invulnerableCoolDown;
+        myAnimator = GetComponent<Animator>();
     }
 
     public void TakeHit()
     {
         if (invulnerable) { return; }
         health--;
+        myAnimator.SetBool("invulnerable", true);
         if(health <= 0)
         {
             hippoRocket.StopEngines();
@@ -94,6 +97,7 @@ public class HealthManager : MonoBehaviour
         if (invulnerableTimer <=0 )
         {
             invulnerable = false;
+            myAnimator.SetBool("invulnerable", false);
             invulnerableTimer = invulnerableCoolDown;
         }
 

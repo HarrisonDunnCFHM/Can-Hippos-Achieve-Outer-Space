@@ -7,22 +7,23 @@ public class DragonFire : MonoBehaviour
     //config
 
     //cached ref
-    HealthManager hippoHealth;
     
     // Start is called before the first frame update
     void Start()
     {
-        hippoHealth = FindObjectOfType<HealthManager>();
+
+    }
+    private void OnParticleCollision(GameObject other)
+    {
+        var ps = GetComponent<ParticleSystem>();
+        var coll = ps.collision;
+        coll.enabled = false;
     }
 
-    /*private void OnParticleCollision(GameObject other)
+    private void OnParticleTrigger()
     {
-        Debug.Log("I found " + other.gameObject.name);
-        if (other.GetComponent<HippoRocket>())
-        {
-            hippoHealth.TakeHit();
-        }
-    }*/
+        
+    }
 
     // Update is called once per frame
     void Update()
