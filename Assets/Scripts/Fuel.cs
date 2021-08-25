@@ -16,7 +16,7 @@ public class Fuel : MonoBehaviour
     RectTransform fuelTransform;
     float fuelGaugeXPos;
     float fuelPercent;
-    ScrollingBackground scrollingBackGround;
+    List<ScrollingBackground> scrollingBackGrounds;
     HippoRocket hippoRocket;
     DistanceTracker distanceTracker;
 
@@ -31,7 +31,7 @@ public class Fuel : MonoBehaviour
         fuelTransform.sizeDelta = new Vector2(fuelMax, fuelTransform.sizeDelta.y);
         var newXPos = fuelGaugeXPos + ((fuelMax-100) * 0.5f);
         fuelSlider.transform.localPosition = new Vector2(newXPos, fuelTransform.transform.localPosition.y);
-        scrollingBackGround = FindObjectOfType<ScrollingBackground>();
+        scrollingBackGrounds = new List<ScrollingBackground>(FindObjectsOfType<ScrollingBackground>());
         hippoRocket = FindObjectOfType<HippoRocket>();
         distanceTracker = FindObjectOfType<DistanceTracker>();
     }
@@ -56,9 +56,12 @@ public class Fuel : MonoBehaviour
 
     public void OutOfFuel()
     {
-        scrollingBackGround.StopAscending();
         distanceTracker.StopAscending();
         hippoRocket.StopEngines();
         fuelBurnRate = 0;
+        foreach (ScrollingBackground scrollingBackground in scrollingBackGrounds)
+        {
+            scrollingBackground.StopAscending();
+        }
     }
 }
