@@ -8,16 +8,29 @@ public class ScrollingBackground : MonoBehaviour
     ///config params
     [SerializeField] float backgroundScrollSpeed = 0.5f;
     [SerializeField] float sideScrollSpeed = 1f;
+    [SerializeField] float opacity;
+    [SerializeField] float nextLevelSpeed;
+
+
+    //cached references
+    float backgroundScrollCached;
     Material myMaterial;
     Vector2 yOffSet;
     bool ascending;
+    public bool nextLevelTriggered;
+    MeshRenderer myMesh;
+    float myStartY;
+    float myTargetY;
 
     // Start is called before the first frame update
     void Start()
     {
         myMaterial = GetComponent<Renderer>().material;
+        myMesh = GetComponent<MeshRenderer>();
         yOffSet = new Vector2(0, backgroundScrollSpeed);
         ascending = true;
+        myStartY = transform.position.y;
+        backgroundScrollCached = backgroundScrollSpeed;
     }
 
     // Update is called once per frame
@@ -31,15 +44,38 @@ public class ScrollingBackground : MonoBehaviour
         {
             myMaterial.mainTextureOffset -= yOffSet * Time.deltaTime;
         }
+        
+        NextLevel();
+
     }
 
-    private void SideScroll()
+    public void TriggerNextLevel()
     {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * sideScrollSpeed;
-        var newXPos = transform.position.x + deltaX;
-        var xOffSet = new Vector2(newXPos, 0);
-        myMaterial.mainTextureOffset += xOffSet * Time.deltaTime;
+        nextLevelTriggered = true;
     }
+
+    private void NextLevel()
+    {
+        if(!nextLevelTriggered) { myTargetY = myStartY - 10; }
+        if(nextLevelTriggered)
+        {
+            backgroundScrollSpeed = 0f;
+            if (transform.position.y >= myTargetY)
+            {
+                var newY = transform.position.y - (Time.deltaTime * nextLevelSpeed);
+                transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+            }
+            if(transform.position.y <= myTargetY)
+            {
+                transform.position = new Vector3(transform.position.x, myTargetY, transform.position.z);
+                nextLevelTriggered = false;
+                myStartY = transform.position.y;
+                backgroundScrollSpeed = backgroundScrollCached;
+            }
+        }
+    }
+
+    
 
     public void StopAscending()
     {
