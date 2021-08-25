@@ -69,6 +69,7 @@ public class ScrollingBackground : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x, myTargetY, transform.position.z);
                 nextLevelTriggered = false;
+                myStartY = transform.position.y;
                 backgroundScrollSpeed = backgroundScrollCached;
             }
         }
