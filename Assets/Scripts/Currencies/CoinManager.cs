@@ -15,7 +15,7 @@ public class CoinManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myCoins = 0;
+        myCoins = 1000;
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class CoinManager : MonoBehaviour
             coinText.text = myCoins.ToString();
             coinShadow.text = myCoins.ToString();
         }
-        GainCoins(1);
+        //GainCoins(1);
     }
 
     public void GainCoins(int coinsEarned)

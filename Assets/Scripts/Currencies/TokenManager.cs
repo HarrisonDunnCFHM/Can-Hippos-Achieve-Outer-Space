@@ -44,7 +44,7 @@ public class TokenManager : MonoBehaviour
     void Start()
     {
         GetTokenType(myType);
-        myCurrent = 0;
+        myCurrent = 3;
     }
 
     // Update is called once per frame
@@ -131,5 +131,10 @@ public class TokenManager : MonoBehaviour
         if(toRemove > myCurrent)
         { return false; }
         else { return true; }
+    }
+
+    public TokenType ReturnTokenType()
+    {
+        return myType;
     }
 }

@@ -27,7 +27,6 @@ public class Fuel : MonoBehaviour
         fuelSlider.maxValue = fuelMax;
         fuelTransform = fuelSlider.GetComponent<RectTransform>();
         fuelGaugeXPos = fuelSlider.transform.localPosition.x;
-        Debug.Log("fuel gauge x pos is " + fuelGaugeXPos.ToString());
         fuelTransform.sizeDelta = new Vector2(fuelMax, fuelTransform.sizeDelta.y);
         var newXPos = fuelGaugeXPos + ((fuelMax-100) * 0.5f);
         fuelSlider.transform.localPosition = new Vector2(newXPos, fuelTransform.transform.localPosition.y);

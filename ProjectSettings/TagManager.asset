@@ -56,6 +56,12 @@ TagManager:
   - name: Player
     uniqueID: 1275497389
     locked: 0
-  - name: UI
+  - name: UI - Gameplay
     uniqueID: 2683021871
+    locked: 0
+  - name: UI - Upgrades
+    uniqueID: 3215880747
+    locked: 0
+  - name: UI - Menus
+    uniqueID: 2061962919
     locked: 0

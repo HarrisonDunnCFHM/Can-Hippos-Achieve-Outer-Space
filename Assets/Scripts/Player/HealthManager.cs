@@ -51,6 +51,13 @@ public class HealthManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void UpgradeHealth(int upgradeValue)
+    {
+        numberOfCapsules += upgradeValue;
+        health = numberOfCapsules;
+
+    }
+
     public void RestoreHealth()
     {
         health++;

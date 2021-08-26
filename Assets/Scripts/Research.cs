@@ -10,6 +10,7 @@ public class Research : MonoBehaviour
     [SerializeField] string researchName;
     [SerializeField] Text researchText;
     [SerializeField] int startLevel;
+    [SerializeField] int researchMax;
     [SerializeField] Text levelText;
     [SerializeField] int startCoinCost;
     [SerializeField] Text coinCostText;
@@ -24,18 +25,22 @@ public class Research : MonoBehaviour
     [SerializeField] Text awardText;
 
     //cached refs
-    TokenManager tokenManager;
+    HealthManager healthManager;
+    TokenManager[] tokenManagers;
     CoinManager coinManager;
     int currentCoinCost;
     int currentTokenCost;
     int researchLevel;
+    TokenManager myTokenManager;
   
 
     // Start is called before the first frame update
     void Start()
     {
-        tokenManager = FindObjectOfType<TokenManager>();
+        tokenManagers = FindObjectsOfType<TokenManager>();
+        GetMyManager(tokenCostType);
         coinManager = FindObjectOfType<CoinManager>();
+        healthManager = FindObjectOfType<HealthManager>();
         researchLevel = startLevel;
         currentCoinCost = startCoinCost;
         currentTokenCost = startTokenCost;
@@ -50,33 +55,60 @@ public class Research : MonoBehaviour
     private void DisplayResearchInfo()
     {
         researchText.text = researchName;
-        levelText.text = researchLevel.ToString();
-        if (currentCoinCost == 0) { coinCostText.text = ""; }
+        if (researchLevel == researchMax)
+        {
+            levelText.text = "lvl MAX";
+        }
+        else
+        {
+            levelText.text = "lvl " + researchLevel.ToString();
+        }
+        if (currentCoinCost == 0 || researchLevel == researchMax) { coinCostText.text = ""; }
         else
         {
             coinCostText.text = currentCoinCost.ToString() + " coins";
         }
-        if (currentTokenCost == 0) { tokenCostText.text = ""; }
+        if (currentTokenCost == 0 || researchLevel == researchMax) { tokenCostText.text = ""; }
         else if (currentTokenCost == 1)
         {
-            tokenCostText.text = currentCoinCost.ToString() + " " + tokenCostType.ToString();
+            tokenCostText.text = currentTokenCost.ToString() + " " + tokenCostType.ToString();
         }
         else
         {
-            tokenCostText.text = currentCoinCost.ToString() + " " + tokenCostType.ToString() + "s";
+            tokenCostText.text = currentTokenCost.ToString() + " " + tokenCostType.ToString() + "s";
         }
         awardText.text = awardDescription;
     }
 
-    public void BuyResearch()
+    public void BuyHealthUpgrade()
     {
-        if (!coinManager.CheckAvailable(currentCoinCost)) { return; }
-        if (!tokenManager.CheckAvailable(currentTokenCost)) { return; }
+        var awardAmount = BuyResearch();
+        if ( awardAmount == 0) { return; }
+        healthManager.UpgradeHealth((int)awardAmount);
+        awardBase += awardIncrease;
+    }
+
+    public float BuyResearch()
+    {
+        if (researchLevel == researchMax) { return 0; }
+        if (!coinManager.CheckAvailable(currentCoinCost)) { return 0; }
+        if (!myTokenManager.CheckAvailable(currentTokenCost)) { return 0; }
         coinManager.SpendCoins(currentCoinCost);
         currentCoinCost = Mathf.RoundToInt(coinCostGrowth * currentCoinCost);
-        tokenManager.SpendTokens(currentTokenCost);
+        myTokenManager.SpendTokens(currentTokenCost);
         currentTokenCost += tokenCostGrowth;
+        researchLevel++;
+        return awardBase;
+    }
 
-
+    private void GetMyManager(TokenManager.TokenType costType)
+    {
+        foreach(TokenManager tokenManager in tokenManagers)
+        {
+            if (tokenManager.ReturnTokenType() == costType)
+            {
+                myTokenManager = tokenManager;
+            }
+        }
     }
 }
