@@ -1654,6 +1654,10 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3481982816269480469, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: textShadow
+      value: 
+      objectReference: {fileID: 344947373}
+    - target: {fileID: 3481982816269480469, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: distanceText
       value: 
       objectReference: {fileID: 8052856102644898571}
