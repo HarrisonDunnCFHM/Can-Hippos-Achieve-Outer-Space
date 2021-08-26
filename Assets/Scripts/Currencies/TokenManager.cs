@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CurrencyManager : MonoBehaviour
+public class TokenManager : MonoBehaviour
 {
-    public enum CurrencyType {Scale, Fire, Rain, Spark};
-    [SerializeField] CurrencyType myType;
+    public enum TokenType {Coin, Scale, Fire, Rain, Spark};
+    [SerializeField] TokenType myType;
 
     [Header("Dragon Scales")]
     [SerializeField] Image[] scaleImages;
@@ -43,42 +43,42 @@ public class CurrencyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetCurrencyType(myType);
+        GetTokenType(myType);
         myCurrent = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ManageCurrencyDisplay(myCurrent, myMax, myImages, myFull, myEmpty);
+        ManageTokenDisplay(myCurrent, myMax, myImages, myFull, myEmpty);
     }
 
-    private void GetCurrencyType(CurrencyType myType)
+    private void GetTokenType(TokenType myType)
     {
         switch (myType)
         {
-            case CurrencyType.Scale:
+            case TokenType.Scale:
                 myImages = scaleImages;
                 myFull = scaleFull;
                 myEmpty = scaleEmpty;
                 myMax = scaleMax;
                 myCurrent = scaleCurrent;
                 break;
-            case CurrencyType.Fire:
+            case TokenType.Fire:
                 myImages = fireImages;
                 myFull = fireFull;
                 myEmpty = fireEmpty;
                 myMax = fireMax;
                 myCurrent = fireCurrent;
                 break;
-            case CurrencyType.Rain:
+            case TokenType.Rain:
                 myImages = rainImages;
                 myFull = rainFull;
                 myEmpty = rainEmpty;
                 myMax = rainMax;
                 myCurrent = rainCurrent;
                 break;
-            case CurrencyType.Spark:
+            case TokenType.Spark:
                 myImages = sparkImages;
                 myFull = sparkFull;
                 myEmpty = sparkEmpty;
@@ -91,7 +91,7 @@ public class CurrencyManager : MonoBehaviour
         }
     }
 
-    private void ManageCurrencyDisplay(int current, int max, Image[] image, Sprite full, Sprite empty)
+    private void ManageTokenDisplay(int current, int max, Image[] image, Sprite full, Sprite empty)
     {
         if (current > max)
         {
@@ -114,5 +114,22 @@ public class CurrencyManager : MonoBehaviour
             }
             else { image[i].enabled = false; }
         }
+    }
+
+    public void AddTokens(int toAdd)
+    {
+        myCurrent += toAdd;
+    }
+
+    public void SpendTokens(int toRemove)
+    {
+        myCurrent -= toRemove;
+    }
+
+    public bool CheckAvailable(int toRemove)
+    {
+        if(toRemove > myCurrent)
+        { return false; }
+        else { return true; }
     }
 }

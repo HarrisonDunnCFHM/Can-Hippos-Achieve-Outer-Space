@@ -7,6 +7,7 @@ public class DistanceTracker : MonoBehaviour
 {
     //config params
     [SerializeField] Text distanceText;
+    [SerializeField] Text textShadow;
     [SerializeField] float baseMoveSpeed;
     [SerializeField] float endTier1;
     [SerializeField] float endTier2;
@@ -34,10 +35,12 @@ public class DistanceTracker : MonoBehaviour
         {
             currentDistance += baseMoveSpeed * Time.deltaTime;
             distanceText.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
+            textShadow.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
         }
         else
         {
             distanceText.text = "You went " + currentDistance.ToString("F1") + " feet!";
+            textShadow.text = "You went " + currentDistance.ToString("F1") + " feet!";
         }
         TierUpCheck();
     }

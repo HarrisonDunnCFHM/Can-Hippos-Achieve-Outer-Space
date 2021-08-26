@@ -44,7 +44,7 @@ public class Fuel : MonoBehaviour
             fuelCurrent = fuelMax;
         }
         fuelPercent = (fuelCurrent / fuelMax) * 100;
-        fuelText.text = fuelPercent.ToString("F2") + "%";
+        fuelText.text = fuelPercent.ToString("F1") + "%";
         fuelCurrent -= fuelBurnRate * Time.deltaTime;
         fuelSlider.value = fuelCurrent;
         if (fuelCurrent <= 0)
