@@ -17,11 +17,18 @@ public class IncrementingData : MonoBehaviour
     public int firesBanked;
     public int rainsBanked;
     public int sparksBanked;
-    float rocketSpeed;
-    int healthMax;
-    int fuelMax;
-    float fuelEfficiency;
-    float flyDistanceBest;
+    public float rocketSpeed;
+    public int healthMax;
+    public int fuelMax;
+    public float fuelEfficiency;
+    public float flyDistanceBest;
+    public int[] researchLevels = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public int[] researchCoinCost = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public int[] researchTokenCost = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public int[] researchAward = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+
+
 
 
     private void Awake()
@@ -41,7 +48,6 @@ public class IncrementingData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame

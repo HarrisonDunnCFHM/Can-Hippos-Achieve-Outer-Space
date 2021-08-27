@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 711509050}
   startLevel: 0
   researchMax: 3
@@ -191,7 +192,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 2117317923}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 2120514356}
@@ -1025,6 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 222714608}
   startLevel: 0
   researchMax: 3
@@ -1036,7 +1038,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 829017906}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1417367652}
@@ -2812,6 +2814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 2080874932}
   startLevel: 0
   researchMax: 3
@@ -2823,7 +2826,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1828752670}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 670070128}
@@ -3058,6 +3061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1899672704}
   startLevel: 0
   researchMax: 3
@@ -3069,7 +3073,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1319682020}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1530142372}
@@ -3703,6 +3707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 623995842}
   startLevel: 0
   researchMax: 3
@@ -3714,7 +3719,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 625008835}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1391426902}
@@ -4263,6 +4268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1448018784}
   startLevel: 0
   researchMax: 3
@@ -4274,7 +4280,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 740699869}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1480365634}
@@ -4642,6 +4648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1568919769}
   startLevel: 0
   researchMax: 3
@@ -4653,7 +4660,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 906486829}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1842390486}
@@ -5396,6 +5403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 39036291}
   startLevel: 0
   researchMax: 3
@@ -5407,7 +5415,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1651704843}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 540355029}
@@ -5881,6 +5889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 182117246}
   startLevel: 0
   researchMax: 3
@@ -5892,7 +5901,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1913997882}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1138443287}
@@ -6441,6 +6450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1472201617}
   startLevel: 0
   researchMax: 3
@@ -6452,7 +6462,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1445113484}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1707603266}
@@ -6872,6 +6882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1219131774}
   startLevel: 0
   researchMax: 3
@@ -6883,7 +6894,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1337964199}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 690449694}
@@ -7018,6 +7029,15 @@ MonoBehaviour:
   firesBanked: 0
   rainsBanked: 0
   sparksBanked: 0
+  rocketSpeed: 0
+  healthMax: 0
+  fuelMax: 0
+  fuelEfficiency: 0
+  flyDistanceBest: 0
+  researchLevels: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  researchCoinCost: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  researchTokenCost: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  researchAward: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &1061441035
 Transform:
   m_ObjectHideFlags: 0
@@ -8442,6 +8462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1428629242}
   startLevel: 0
   researchMax: 3
@@ -8453,7 +8474,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1672719430}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1207230256}
@@ -9708,6 +9729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 27287516}
   startLevel: 0
   researchMax: 3
@@ -9719,7 +9741,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1700397665}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1237330325}
@@ -10126,6 +10148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 1
   researchText: {fileID: 192359988}
   startLevel: 0
   researchMax: 3
@@ -12140,6 +12163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 225702589}
   startLevel: 0
   researchMax: 3
@@ -12151,7 +12175,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 813846302}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1659813784}
@@ -12469,6 +12493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 561643057}
   startLevel: 0
   researchMax: 3
@@ -12480,7 +12505,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 116123754}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1299062594}
@@ -13036,6 +13061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1577265685}
   startLevel: 0
   researchMax: 3
@@ -13047,7 +13073,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 1629175877}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 42399132}
@@ -13761,6 +13787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
+  researchIndex: 0
   researchText: {fileID: 1288315306}
   startLevel: 0
   researchMax: 3
@@ -13772,7 +13799,7 @@ MonoBehaviour:
   tokenCostText: {fileID: 989219639}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 1
+  awardBase: 0
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1630779020}

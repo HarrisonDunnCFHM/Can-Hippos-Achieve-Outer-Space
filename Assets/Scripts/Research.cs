@@ -8,6 +8,7 @@ public class Research : MonoBehaviour
 {
     //config parameters
     [SerializeField] string researchName;
+    [SerializeField] int researchIndex;
     [SerializeField] Text researchText;
     [SerializeField] int startLevel;
     [SerializeField] int researchMax;
@@ -19,8 +20,8 @@ public class Research : MonoBehaviour
     [SerializeField] Text tokenCostText;
     [SerializeField] float coinCostGrowth;
     [SerializeField] int tokenCostGrowth;
-    [SerializeField] float awardBase;
-    [SerializeField] float awardIncrease;
+    [SerializeField] int awardBase;
+    [SerializeField] int awardIncrease;
     [SerializeField] string awardDescription;
     [SerializeField] Text awardText;
 
@@ -32,6 +33,7 @@ public class Research : MonoBehaviour
     int currentTokenCost;
     int researchLevel;
     TokenManager myTokenManager;
+    IncrementingData gameData;
   
 
     // Start is called before the first frame update
@@ -39,9 +41,18 @@ public class Research : MonoBehaviour
     {
         coinManager = FindObjectOfType<CoinManager>();
         healthManager = FindObjectOfType<HealthManager>();
-        researchLevel = startLevel;
+        //researchLevel = startLevel;
         currentCoinCost = startCoinCost;
         currentTokenCost = startTokenCost;
+        gameData = FindObjectOfType<IncrementingData>();
+        researchLevel = gameData.researchLevels[researchIndex];
+        if (gameData.researchCoinCost[researchIndex] == 0) { currentCoinCost = startCoinCost; }
+        else { currentCoinCost = gameData.researchCoinCost[researchIndex]; }
+        if (gameData.researchTokenCost[researchIndex] == 0) { currentTokenCost = startTokenCost; }
+        else { currentTokenCost = gameData.researchTokenCost[researchIndex]; }
+        if (gameData.researchAward[researchIndex] != 0) { awardBase = gameData.researchAward[researchIndex]; }
+        
+
     }
 
     // Update is called once per frame
@@ -97,5 +108,13 @@ public class Research : MonoBehaviour
         currentTokenCost += tokenCostGrowth;
         researchLevel++;
         return awardBase;
+    }
+
+    public void CacheResearchStats()
+    {
+        gameData.researchLevels[researchIndex] = researchLevel;
+        gameData.researchCoinCost[researchIndex] = currentCoinCost;
+        gameData.researchTokenCost[researchIndex] = currentTokenCost;
+        gameData.researchAward[researchIndex] = awardBase;
     }
 }

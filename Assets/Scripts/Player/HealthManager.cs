@@ -11,11 +11,12 @@ public class HealthManager : MonoBehaviour
     [SerializeField] Image[] healthCapsules;
     [SerializeField] Sprite fullCapsule;
     [SerializeField] Sprite emptyCapsule;
-    public int health;
-    public int numberOfCapsules;
+    public int healthCurrent;
+    public int healthMax;
     [SerializeField] float invulnerableCoolDown = 1f;
     [SerializeField] PopOutMenu retryMenu;
     [SerializeField] TokenManager tokenManager;
+    
 
     //cached references
     HippoRocket hippoRocket;
@@ -23,6 +24,8 @@ public class HealthManager : MonoBehaviour
     bool invulnerable;
     float invulnerableTimer;
     Animator myAnimator;
+    IncrementingData gameData;
+    List<Research> allResearch;
     
     
     // Start is called before the first frame update
@@ -33,57 +36,36 @@ public class HealthManager : MonoBehaviour
         invulnerable = false;
         invulnerableTimer = invulnerableCoolDown;
         myAnimator = GetComponent<Animator>();
-    }
-
-    public void TakeHit()
-    {
-        if (invulnerable) { return; }
-        health--;
-        myAnimator.SetBool("invulnerable", true);
-        if(health <= 0)
+        gameData = FindObjectOfType<IncrementingData>();
+        if(gameData.healthMax < 3 )
         {
-            hippoRocket.StopEngines();
-            fuel.OutOfFuel();
-            retryMenu.ToggleMenu();
-            Time.timeScale = 1f;
+            gameData.healthMax = 3;
         }
-        invulnerable = true;
-    }
-
-   
-
-    public void ResetLevel()
-    {
-        tokenManager.TransferToBank();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void UpgradeHealth(int upgradeValue)
-    {
-        numberOfCapsules += upgradeValue;
-        health = numberOfCapsules;
-
-    }
-
-    public void RestoreHealth()
-    {
-        health++;
+        healthMax = gameData.healthMax;
+        healthCurrent = healthMax;
+        allResearch = new List<Research>(FindObjectsOfType<Research>());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r"))
         {
             ResetLevel();
         }
-        if (health > numberOfCapsules)
+        DisplayHealth();
+        InvulnerabilityReset();
+    }
+
+    private void DisplayHealth()
+    {
+        if (healthCurrent > healthMax)
         {
-            health = numberOfCapsules;
+            healthCurrent = healthMax;
         }
         for (int i = 0; i < healthCapsules.Length; i++)
         {
-            if(i<health)
+            if (i < healthCurrent)
             {
                 healthCapsules[i].sprite = fullCapsule;
             }
@@ -91,15 +73,58 @@ public class HealthManager : MonoBehaviour
             {
                 healthCapsules[i].sprite = emptyCapsule;
             }
-            
-            if(i<numberOfCapsules)
+
+            if (i < healthMax)
             {
                 healthCapsules[i].enabled = true;
             }
             else { healthCapsules[i].enabled = false; }
         }
-        InvulnerabilityReset();
     }
+
+    public void TakeHit()
+    {
+        if (invulnerable) { return; }
+        healthCurrent--;
+        myAnimator.SetBool("invulnerable", true);
+        if(healthCurrent <= 0)
+        {
+            hippoRocket.StopEngines();
+            fuel.OutOfFuel();
+            retryMenu.ToggleMenu();
+            Time.timeScale = 1f;
+            invulnerable = true;
+        }
+        invulnerable = true;
+    }
+
+    public void ResetLevel()
+    {
+        UpdateHealthData();
+        tokenManager.TransferToBank();
+        foreach(Research research in allResearch)
+        {
+            research.CacheResearchStats();
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    private void UpdateHealthData()
+    {
+        gameData.healthMax = healthMax;
+    }
+
+    public void UpgradeHealth(int upgradeValue)
+    {
+        healthMax += upgradeValue;
+        healthCurrent = healthMax;
+
+    }
+
+    public void RestoreHealth()
+    {
+        healthCurrent++;
+    }
+
 
     private void InvulnerabilityReset()
     {
