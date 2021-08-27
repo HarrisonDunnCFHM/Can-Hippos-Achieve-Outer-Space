@@ -10,6 +10,7 @@ public class PopOutMenu : MonoBehaviour
     [SerializeField] Vector2 myHomePos;
     [SerializeField] Vector2 myExtendedPos;
     [SerializeField] float moveSpeed;
+    [SerializeField] bool startingMenu;
 
     //cached references
     Vector2 myTarget;
@@ -20,7 +21,7 @@ public class PopOutMenu : MonoBehaviour
     void Start()
     {
         transform.localPosition = myHomePos;
-        ToggleMenu();
+        if (startingMenu) { ToggleMenu(); }
     }
 
     // Update is called once per frame
@@ -36,7 +37,6 @@ public class PopOutMenu : MonoBehaviour
             {
                 transform.localPosition = myExtendedPos;
                 isExtending = false;
-                Time.timeScale = 0;
             }
 
         }

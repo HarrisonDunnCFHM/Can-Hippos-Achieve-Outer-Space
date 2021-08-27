@@ -126,7 +126,8 @@ public class DistanceTracker : MonoBehaviour
             scroller.BlastOff();
         }
         StartCoroutine(TerrainParallax());
-        if(!upgradeMenu.CheckExtended()) { upgradeMenu.ToggleMenu(); }
+        if(upgradeMenu.CheckExtended()) { upgradeMenu.ToggleMenu(); }
+        Time.timeScale = 1f;
         blastOffButton.gameObject.SetActive(false);
     }
 

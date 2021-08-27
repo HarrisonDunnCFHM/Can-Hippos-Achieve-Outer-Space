@@ -14,6 +14,7 @@ public class HealthManager : MonoBehaviour
     public int health;
     public int numberOfCapsules;
     [SerializeField] float invulnerableCoolDown = 1f;
+    [SerializeField] PopOutMenu retryMenu;
 
     //cached references
     HippoRocket hippoRocket;
@@ -42,6 +43,8 @@ public class HealthManager : MonoBehaviour
         {
             hippoRocket.StopEngines();
             fuel.OutOfFuel();
+            retryMenu.ToggleMenu();
+            Time.timeScale = 1f;
         }
         invulnerable = true;
     }
