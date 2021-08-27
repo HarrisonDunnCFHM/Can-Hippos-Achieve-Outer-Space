@@ -11,6 +11,9 @@ public class PopOutMenu : MonoBehaviour
     [SerializeField] Vector2 myExtendedPos;
     [SerializeField] float moveSpeed;
     [SerializeField] bool startingMenu;
+    [SerializeField] bool pausesMenu;
+    enum MenuDirection { Left, Top, Right, Bottom };
+    [SerializeField] MenuDirection menuHome;
 
     //cached references
     Vector2 myTarget;
@@ -27,43 +30,146 @@ public class PopOutMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isExtending)
-        {
-            if ((Vector2)transform.localPosition != myExtendedPos)
-            {
-                transform.localPosition = new Vector2(transform.localPosition.x + (moveSpeed * Time.deltaTime), transform.localPosition.y);
-            }
-            if (transform.localPosition.x > myExtendedPos.x)
-            {
-                transform.localPosition = myExtendedPos;
-                isExtending = false;
-            }
+        MenuPopOut(menuHome);
+    }
 
-        }
-        if (isRetracting)
+    private void MenuPopOut(MenuDirection myDirection)
+    {
+        switch (myDirection)
         {
-            if ((Vector2)transform.localPosition != myHomePos)
-            {
-                transform.localPosition = new Vector2(transform.localPosition.x - (moveSpeed * Time.deltaTime), transform.localPosition.y);
-            }
-            if (transform.localPosition.x < myHomePos.x)
-            {
-                transform.localPosition = myHomePos;
-                isRetracting = false;
-            }
+            case MenuDirection.Left:
+                if (isExtending)
+                {
+                    if ((Vector2)transform.localPosition != myExtendedPos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x + (moveSpeed * Time.deltaTime), transform.localPosition.y);
+                    }
+                    if (transform.localPosition.x > myExtendedPos.x)
+                    {
+                        transform.localPosition = myExtendedPos;
+                        isExtending = false;
+                        if (pausesMenu) { Time.timeScale = 0f; }
+                    }
 
+                }
+                if (isRetracting)
+                {
+                    if ((Vector2)transform.localPosition != myHomePos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x - (moveSpeed * Time.deltaTime), transform.localPosition.y);
+                    }
+                    if (transform.localPosition.x < myHomePos.x)
+                    {
+                        transform.localPosition = myHomePos;
+                        isRetracting = false;
+                    }
+
+                }
+                break;
+            case MenuDirection.Right:
+                if (isExtending)
+                {
+                    if ((Vector2)transform.localPosition != myExtendedPos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x - (moveSpeed * Time.deltaTime), transform.localPosition.y);
+                    }
+                    if (transform.localPosition.x < myExtendedPos.x)
+                    {
+                        transform.localPosition = myExtendedPos;
+                        isExtending = false;
+                        if (pausesMenu) { Time.timeScale = 0f; }
+                    }
+
+                }
+                if (isRetracting)
+                {
+                    if ((Vector2)transform.localPosition != myHomePos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x + (moveSpeed * Time.deltaTime), transform.localPosition.y);
+                    }
+                    if (transform.localPosition.x < myHomePos.x)
+                    {
+                        transform.localPosition = myHomePos;
+                        isRetracting = false;
+                    }
+
+                }
+                break;
+            case MenuDirection.Top:
+                if (isExtending)
+                {
+                    if ((Vector2)transform.localPosition != myExtendedPos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y - (moveSpeed * Time.deltaTime));
+                    }
+                    if (transform.localPosition.y < myExtendedPos.y)
+                    {
+                        transform.localPosition = myExtendedPos;
+                        isExtending = false;
+                        if (pausesMenu) { Time.timeScale = 0f; }
+                    }
+
+                }
+                if (isRetracting)
+                {
+                    if ((Vector2)transform.localPosition != myHomePos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y + (moveSpeed * Time.deltaTime));
+                    }
+                    if (transform.localPosition.y > myHomePos.y)
+                    {
+                        transform.localPosition = myHomePos;
+                        isRetracting = false;
+                    }
+
+                }
+                break;
+            case MenuDirection.Bottom:
+                if (isExtending)
+                {
+                    if ((Vector2)transform.localPosition != myExtendedPos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y + (moveSpeed * Time.deltaTime));
+                    }
+                    if (transform.localPosition.y > myExtendedPos.y)
+                    {
+                        transform.localPosition = myExtendedPos;
+                        isExtending = false;
+                        if (pausesMenu) { Time.timeScale = 0f; }
+                    }
+
+                }
+                if (isRetracting)
+                {
+                    if ((Vector2)transform.localPosition != myHomePos)
+                    {
+                        transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y - (moveSpeed * Time.deltaTime));
+                    }
+                    if (transform.localPosition.y < myHomePos.y)
+                    {
+                        transform.localPosition = myHomePos;
+                        isRetracting = false;
+                    }
+
+                }
+                break;
+            default:
+                Debug.Log("no home direction set");
+                break;
         }
     }
 
     public bool CheckExtended()
     {
-        if((Vector2)transform.position == myExtendedPos) { return true; }
+        if((Vector2)transform.localPosition == myExtendedPos) {
+            Debug.Log("Menu extended");
+            return true; }
         else { return false; }
     }
 
     public void ToggleMenu()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         if ((Vector2)transform.localPosition == myHomePos) { isExtending = true; }
         if ((Vector2)transform.localPosition == myExtendedPos) { isRetracting = true; }
     }

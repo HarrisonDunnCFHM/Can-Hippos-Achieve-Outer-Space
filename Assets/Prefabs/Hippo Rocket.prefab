@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4678520520338929187}
   - component: {fileID: 4678520520338929186}
   - component: {fileID: 4678520520338929184}
+  - component: {fileID: 6367470969945529793}
   - component: {fileID: 7391128746506255737}
   - component: {fileID: 6235077770868514917}
   - component: {fileID: 3481982816269480469}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1275497389
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2cc50128f8b6d6440bb9f740a26b1357, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -108,6 +109,24 @@ MonoBehaviour:
   yBotScreenPadding: 1.5
   myEngines: {fileID: 4678520521735466079}
   gravity: 3
+  gravityDelay: 1
+  tokenCollector: {fileID: 0}
+--- !u!114 &6367470969945529793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678520520338929189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cdd121d59f78e40802d2d4e9a757e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleManager: {fileID: 0}
+  fireManager: {fileID: 0}
+  rainManager: {fileID: 0}
+  sparkManager: {fileID: 0}
 --- !u!114 &7391128746506255737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,8 +151,7 @@ MonoBehaviour:
   health: 3
   numberOfCapsules: 3
   invulnerableCoolDown: 1
-  invulnerable: 0
-  invulnerableTimer: 0
+  retryMenu: {fileID: 0}
 --- !u!114 &6235077770868514917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +181,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceText: {fileID: 0}
+  textShadow: {fileID: 0}
   baseMoveSpeed: 50
+  endTier1: 0
+  endTier2: 0
+  blastOffButton: {fileID: 0}
+  hippoRocket: {fileID: 0}
+  fuel: {fileID: 0}
+  obstacleSpawner: {fileID: 0}
+  scrollingBackgrounds: []
+  upgradeMenu: {fileID: 0}
+  launchPad: {fileID: 0}
+  mountainFront: {fileID: 0}
+  mountainBack: {fileID: 0}
+  bOParallaxDelay: 0.5
+  bOParallaxSpeed: 1
 --- !u!50 &4678520520338929185
 Rigidbody2D:
   serializedVersion: 4

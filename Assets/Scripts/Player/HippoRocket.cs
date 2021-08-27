@@ -13,6 +13,7 @@ public class HippoRocket : MonoBehaviour
     [SerializeField] GameObject myEngines;
     [SerializeField] float gravity;
     [SerializeField] float gravityDelay = 1f;
+    [SerializeField] TokenCollector tokenCollector;
 
 
 
@@ -47,12 +48,17 @@ public class HippoRocket : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<ObstacleDestroyer>()) { return; }
+        bool collectedToken = tokenCollector.CollectToken(collision.gameObject);
+        if (collectedToken) { return; }
         myHealth.TakeHit();
     }
 
     private void OnParticleCollision(GameObject other)
     {
+        bool collectedToken = tokenCollector.CollectToken(other.gameObject);
+        if (collectedToken) { return; }
         myHealth.TakeHit();
+
     }
 
 
@@ -71,6 +77,7 @@ public class HippoRocket : MonoBehaviour
         if (!ascending) return;
         deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+        if (deltaY != 0){ gravityOn = true; }
         newXPos = Mathf.Clamp(transform.position.x, xMin, xMax) + deltaX;
         newZRot = Mathf.Clamp(transform.rotation.z - (deltaX / moveSpeed), -.25f,.25f);
         newYPos = Mathf.Clamp(transform.position.y, yMin, yMax) + deltaY;

@@ -44,7 +44,7 @@ public class TokenManager : MonoBehaviour
     void Start()
     {
         GetTokenType(myType);
-        myCurrent = 3;
+        myCurrent = 0;
     }
 
     // Update is called once per frame
@@ -116,9 +116,15 @@ public class TokenManager : MonoBehaviour
         }
     }
 
-    public void AddTokens(int toAdd)
+    public bool AddTokens(int toAdd)
     {
-        myCurrent += toAdd;
+        if (myCurrent + toAdd <= myMax)
+        { 
+            myCurrent += toAdd;
+            return true;
+        }
+        else
+        { return false; }
     }
 
     public void SpendTokens(int toRemove)
