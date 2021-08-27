@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,14 +14,18 @@ public class DistanceTracker : MonoBehaviour
     [SerializeField] float endTier2;
 
     [Header("Blast Offs")]
+    [SerializeField] GameObject blastOffButton;
     [SerializeField] HippoRocket hippoRocket;
     [SerializeField] Fuel fuel;
     [SerializeField] ObstacleSpawner obstacleSpawner;
     [SerializeField] ScrollingBackground[] scrollingBackgrounds;
+    [SerializeField] PopOutMenu upgradeMenu;
 
     [SerializeField] GameObject launchPad;
     [SerializeField] GameObject mountainFront;
     [SerializeField] GameObject mountainBack;
+    [SerializeField] float bOParallaxDelay = 0.5f;
+    [SerializeField] float bOParallaxSpeed = 1f;
     
 
     //cached references
@@ -30,6 +35,9 @@ public class DistanceTracker : MonoBehaviour
     bool ascending;
     bool descending;
     List<ScrollingBackground> backgrounds;
+    bool launchPadMove;
+    bool mountainFrontMove;
+    bool mountainBackMove;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +50,32 @@ public class DistanceTracker : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        UpdateDistanceTicker();
+        TierUpCheck();
+        HandleTerrainParallax();
+    }
+
+    private void HandleTerrainParallax()
+    {
+        if(launchPadMove)
+        {
+            var newY = launchPad.transform.position.y - (Time.deltaTime * bOParallaxSpeed);
+            launchPad.transform.position = new Vector2(launchPad.transform.position.x, newY);
+        }
+        if (mountainFrontMove)
+        {
+            var newY = mountainFront.transform.position.y - (Time.deltaTime * bOParallaxSpeed);
+            mountainFront.transform.position = new Vector2(mountainFront.transform.position.x, newY);
+        }
+        if (mountainBackMove)
+        {
+            var newY = mountainBack.transform.position.y - (Time.deltaTime * bOParallaxSpeed);
+            mountainBack.transform.position = new Vector2(mountainBack.transform.position.x, newY);
+        }
+    }
+
+    private void UpdateDistanceTicker()
     {
         if (ascending)
         {
@@ -59,7 +93,6 @@ public class DistanceTracker : MonoBehaviour
             distanceText.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
             textShadow.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
         }
-        TierUpCheck();
     }
 
     private void TierUpCheck()
@@ -92,6 +125,22 @@ public class DistanceTracker : MonoBehaviour
         {
             scroller.BlastOff();
         }
+        StartCoroutine(TerrainParallax());
+        if(!upgradeMenu.CheckExtended()) { upgradeMenu.ToggleMenu(); }
+        blastOffButton.gameObject.SetActive(false);
+    }
+
+    private IEnumerator TerrainParallax()
+    {
+        launchPadMove = true;
+        yield return new WaitForSeconds(bOParallaxDelay);
+        mountainFrontMove = true;
+        yield return new WaitForSeconds(bOParallaxDelay * 2);
+        mountainBackMove = true;
+        yield return new WaitForSeconds(10f);
+        launchPad.SetActive(false);
+        mountainBack.SetActive(false);
+        mountainFront.SetActive(false);
     }
 
     public void StopAscending()

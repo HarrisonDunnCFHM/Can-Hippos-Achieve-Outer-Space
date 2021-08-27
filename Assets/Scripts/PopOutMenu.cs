@@ -20,6 +20,7 @@ public class PopOutMenu : MonoBehaviour
     void Start()
     {
         transform.localPosition = myHomePos;
+        ToggleMenu();
     }
 
     // Update is called once per frame
@@ -52,6 +53,12 @@ public class PopOutMenu : MonoBehaviour
             }
 
         }
+    }
+
+    public bool CheckExtended()
+    {
+        if((Vector2)transform.position == myExtendedPos) { return true; }
+        else { return false; }
     }
 
     public void ToggleMenu()

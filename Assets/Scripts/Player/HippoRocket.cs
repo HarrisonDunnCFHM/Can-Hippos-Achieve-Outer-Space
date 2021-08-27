@@ -12,7 +12,8 @@ public class HippoRocket : MonoBehaviour
     [SerializeField] float yBotScreenPadding = 1f;
     [SerializeField] GameObject myEngines;
     [SerializeField] float gravity;
-    
+    [SerializeField] float gravityDelay = 1f;
+
 
 
     //cached references
@@ -30,6 +31,7 @@ public class HippoRocket : MonoBehaviour
     float deltaXLast;
     bool ascending;
     bool blastOff;
+    bool gravityOn;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,8 @@ public class HippoRocket : MonoBehaviour
         SetUpMoveBoundaries();
         moveSpeed = moveSpeedBase;
         ascending = true;
+        myEngines.SetActive(false);
+        gravityOn = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,7 +62,7 @@ public class HippoRocket : MonoBehaviour
     {
        if (!blastOff) { return; }
         ControlShip();
-        transform.position = new Vector2(transform.position.x, transform.position.y - (gravity * Time.deltaTime));
+        if (gravityOn) { transform.position = new Vector2(transform.position.x, transform.position.y - (gravity * Time.deltaTime)); }
 
     }
 
@@ -119,6 +123,15 @@ public class HippoRocket : MonoBehaviour
     public void BlastOff()
     {
         blastOff = true;
+        myEngines.SetActive(true);
+        StartCoroutine(StartGravity());
+
+    }
+
+    private IEnumerator StartGravity()
+    {
+        yield return new WaitForSeconds(gravityDelay);
+        gravityOn = true;
     }
 
     public void StopEngines()

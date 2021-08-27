@@ -44,7 +44,7 @@ TagManager:
   - name: Background
     uniqueID: 2351917787
     locked: 0
-  - name: Ground Canvas
+  - name: Terrain
     uniqueID: 485239127
     locked: 0
   - name: Obstacles
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 1682227353
+    locked: 0
+  - name: Player Effects
+    uniqueID: 4098831161
     locked: 0
   - name: Player
     uniqueID: 1275497389
