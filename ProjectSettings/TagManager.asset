@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 2351917787
     locked: 0
+  - name: Ground Canvas
+    uniqueID: 485239127
+    locked: 0
   - name: Obstacles
     uniqueID: 2361351383
     locked: 0

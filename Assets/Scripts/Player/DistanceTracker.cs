@@ -12,17 +12,29 @@ public class DistanceTracker : MonoBehaviour
     [SerializeField] float endTier1;
     [SerializeField] float endTier2;
 
+    [Header("Blast Offs")]
+    [SerializeField] HippoRocket hippoRocket;
+    [SerializeField] Fuel fuel;
+    [SerializeField] ObstacleSpawner obstacleSpawner;
+    [SerializeField] ScrollingBackground[] scrollingBackgrounds;
+
+    [SerializeField] GameObject launchPad;
+    [SerializeField] GameObject mountainFront;
+    [SerializeField] GameObject mountainBack;
+    
+
     //cached references
     bool tier1complete;
     bool tier2complete;
     float currentDistance;
     bool ascending;
+    bool descending;
     List<ScrollingBackground> backgrounds;
 
     // Start is called before the first frame update
     void Start()
     {
-        ascending = true;
+        ascending = false;
         backgrounds = new List<ScrollingBackground>(FindObjectsOfType<ScrollingBackground>());
         tier1complete = false;
         tier2complete = false;
@@ -37,10 +49,15 @@ public class DistanceTracker : MonoBehaviour
             distanceText.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
             textShadow.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
         }
-        else
+        else if (descending)
         {
             distanceText.text = "You went " + currentDistance.ToString("F1") + " feet!";
             textShadow.text = "You went " + currentDistance.ToString("F1") + " feet!";
+        }
+        else
+        {
+            distanceText.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
+            textShadow.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
         }
         TierUpCheck();
     }
@@ -65,9 +82,22 @@ public class DistanceTracker : MonoBehaviour
         }
     }
 
+    public void BlastOff()
+    {
+        ascending = true;
+        hippoRocket.BlastOff();
+        fuel.BlastOff();
+        obstacleSpawner.BlastOff();
+        foreach (ScrollingBackground scroller in scrollingBackgrounds)
+        {
+            scroller.BlastOff();
+        }
+    }
+
     public void StopAscending()
     {
         ascending = false;
+        descending = true;
     }
 
 }

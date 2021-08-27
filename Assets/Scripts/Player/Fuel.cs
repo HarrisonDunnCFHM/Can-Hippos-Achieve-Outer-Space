@@ -19,6 +19,7 @@ public class Fuel : MonoBehaviour
     List<ScrollingBackground> scrollingBackGrounds;
     HippoRocket hippoRocket;
     DistanceTracker distanceTracker;
+    bool blastOff;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class Fuel : MonoBehaviour
         scrollingBackGrounds = new List<ScrollingBackground>(FindObjectsOfType<ScrollingBackground>());
         hippoRocket = FindObjectOfType<HippoRocket>();
         distanceTracker = FindObjectOfType<DistanceTracker>();
+        blastOff = false;
     }
 
     // Update is called once per frame
@@ -44,13 +46,19 @@ public class Fuel : MonoBehaviour
         }
         fuelPercent = (fuelCurrent / fuelMax) * 100;
         fuelText.text = fuelPercent.ToString("F1") + "%";
-        fuelCurrent -= fuelBurnRate * Time.deltaTime;
         fuelSlider.value = fuelCurrent;
+        if (!blastOff) { return; }
+        fuelCurrent -= fuelBurnRate * Time.deltaTime;
         if (fuelCurrent <= 0)
         {
             fuelCurrent = 0;
             OutOfFuel();
         }
+    }
+
+    public void BlastOff()
+    {
+        blastOff = true;
     }
 
     public void OutOfFuel()

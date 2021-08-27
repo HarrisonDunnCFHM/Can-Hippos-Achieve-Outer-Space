@@ -31,6 +31,7 @@ public class ObstacleSpawner : MonoBehaviour
     float xEMax;
     float xOMin;
     float xOMax;
+    bool blastOff;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +39,13 @@ public class ObstacleSpawner : MonoBehaviour
         spawnETimer = spawnEMinStart;
         spawnOTimer = spawnOMinStart;
         SetUpSpawmBoundaries();
+        blastOff = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!blastOff) { return; }
         SpawnEnemy();
         SpawnObstacle();
     }
@@ -90,5 +93,10 @@ public class ObstacleSpawner : MonoBehaviour
             if (spawnOMaxStart > spawnOMaxFloor) { spawnOMaxStart *= spawnORateIncrease; }
             spawnOTimer = UnityEngine.Random.Range(spawnOMinStart, spawnOMaxStart);
         }
+    }
+
+    public void BlastOff()
+    {
+        blastOff = true;
     }
 }

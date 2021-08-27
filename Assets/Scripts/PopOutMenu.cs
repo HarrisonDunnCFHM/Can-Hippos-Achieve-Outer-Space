@@ -35,7 +35,7 @@ public class PopOutMenu : MonoBehaviour
             {
                 transform.localPosition = myExtendedPos;
                 isExtending = false;
-                //Time.timeScale = 0;
+                Time.timeScale = 0;
             }
 
         }
@@ -56,7 +56,7 @@ public class PopOutMenu : MonoBehaviour
 
     public void ToggleMenu()
     {
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         if ((Vector2)transform.localPosition == myHomePos) { isExtending = true; }
         if ((Vector2)transform.localPosition == myExtendedPos) { isRetracting = true; }
     }

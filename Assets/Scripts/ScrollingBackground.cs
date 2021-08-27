@@ -21,6 +21,7 @@ public class ScrollingBackground : MonoBehaviour
     MeshRenderer myMesh;
     float myStartY;
     float myTargetY;
+    bool blastOff;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +32,13 @@ public class ScrollingBackground : MonoBehaviour
         ascending = true;
         myStartY = transform.position.y;
         backgroundScrollCached = backgroundScrollSpeed;
+        blastOff = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!blastOff) { return; }
         if (ascending)
         {
             myMaterial.mainTextureOffset += yOffSet * Time.deltaTime;
@@ -75,7 +78,10 @@ public class ScrollingBackground : MonoBehaviour
         }
     }
 
-    
+    public void BlastOff()
+    {
+        blastOff = true;
+    }
 
     public void StopAscending()
     {

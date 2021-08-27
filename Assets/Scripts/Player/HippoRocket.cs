@@ -29,6 +29,7 @@ public class HippoRocket : MonoBehaviour
     float newZRot;
     float deltaXLast;
     bool ascending;
+    bool blastOff;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,7 @@ public class HippoRocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       if (!blastOff) { return; }
         ControlShip();
         transform.position = new Vector2(transform.position.x, transform.position.y - (gravity * Time.deltaTime));
 
@@ -112,6 +114,11 @@ public class HippoRocket : MonoBehaviour
             }
         }
         deltaXLast = deltaX;
+    }
+
+    public void BlastOff()
+    {
+        blastOff = true;
     }
 
     public void StopEngines()
