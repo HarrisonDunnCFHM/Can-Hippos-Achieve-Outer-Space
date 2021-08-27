@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrainLightning : MonoBehaviour
 {
     //config parameters;
-    [SerializeField] float rotationSpeed = 1;
+
 
     //cached references
     Vector2 directionToRocket;

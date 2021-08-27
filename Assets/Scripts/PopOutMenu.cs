@@ -162,7 +162,6 @@ public class PopOutMenu : MonoBehaviour
     public bool CheckExtended()
     {
         if((Vector2)transform.localPosition == myExtendedPos) {
-            Debug.Log("Menu extended");
             return true; }
         else { return false; }
     }

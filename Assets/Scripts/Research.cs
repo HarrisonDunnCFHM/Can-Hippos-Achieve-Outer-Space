@@ -26,7 +26,7 @@ public class Research : MonoBehaviour
 
     //cached refs
     HealthManager healthManager;
-    TokenManager[] tokenManagers;
+    [SerializeField] TokenManager tokenManager;
     CoinManager coinManager;
     int currentCoinCost;
     int currentTokenCost;
@@ -37,8 +37,6 @@ public class Research : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tokenManagers = FindObjectsOfType<TokenManager>();
-        GetMyManager(tokenCostType);
         coinManager = FindObjectOfType<CoinManager>();
         healthManager = FindObjectOfType<HealthManager>();
         researchLevel = startLevel;
@@ -92,23 +90,12 @@ public class Research : MonoBehaviour
     {
         if (researchLevel == researchMax) { return 0; }
         if (!coinManager.CheckAvailable(currentCoinCost)) { return 0; }
-        if (!myTokenManager.CheckAvailable(currentTokenCost)) { return 0; }
+        var enoughTokens = tokenManager.SpendTokens(currentTokenCost, tokenCostType);
+        if (!enoughTokens) { return 0; }
         coinManager.SpendCoins(currentCoinCost);
         currentCoinCost = Mathf.RoundToInt(coinCostGrowth * currentCoinCost);
-        myTokenManager.SpendTokens(currentTokenCost);
         currentTokenCost += tokenCostGrowth;
         researchLevel++;
         return awardBase;
-    }
-
-    private void GetMyManager(TokenManager.TokenType costType)
-    {
-        foreach(TokenManager tokenManager in tokenManagers)
-        {
-            if (tokenManager.ReturnTokenType() == costType)
-            {
-                myTokenManager = tokenManager;
-            }
-        }
     }
 }

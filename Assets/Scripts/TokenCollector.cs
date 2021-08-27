@@ -5,10 +5,8 @@ using UnityEngine;
 public class TokenCollector : MonoBehaviour
 {
 
-    [SerializeField] TokenManager scaleManager;
-    [SerializeField] TokenManager fireManager;
-    [SerializeField] TokenManager rainManager;
-    [SerializeField] TokenManager sparkManager;
+    [SerializeField] TokenManager tokenManager;
+
 
 
     // Start is called before the first frame update
@@ -28,7 +26,7 @@ public class TokenCollector : MonoBehaviour
         switch (collidedObject.tag)
         {
             case "Scale":
-                bool collectedScale = scaleManager.AddTokens(1);
+                bool collectedScale = tokenManager.AddTokens(TokenManager.TokenType.Scale);
                 if (collectedScale)
                 {
                     Destroy(collidedObject);
@@ -36,7 +34,7 @@ public class TokenCollector : MonoBehaviour
                 }
                 else { return false; }
             case "Fire":
-                bool collectedFire = fireManager.AddTokens(1);
+                bool collectedFire = tokenManager.AddTokens(TokenManager.TokenType.Fire);
                 if (collectedFire)
                 {
                     Destroy(collidedObject);
@@ -44,7 +42,7 @@ public class TokenCollector : MonoBehaviour
                 }
                 else { return false; }
             case "Rain":
-                bool collectedRain = rainManager.AddTokens(1);
+                bool collectedRain = tokenManager.AddTokens(TokenManager.TokenType.Rain);
                 if (collectedRain)
                 {
                     Destroy(collidedObject);
@@ -52,7 +50,7 @@ public class TokenCollector : MonoBehaviour
                 }
                 else { return false; }
             case "Spark":
-                bool collectedSpark = sparkManager.AddTokens(1);
+                bool collectedSpark = tokenManager.AddTokens(TokenManager.TokenType.Spark);
                 if (collectedSpark)
                 {
                     Destroy(collidedObject);

@@ -7,8 +7,6 @@ public class ScrollingBackground : MonoBehaviour
 {
     ///config params
     [SerializeField] float backgroundScrollSpeed = 0.5f;
-    [SerializeField] float sideScrollSpeed = 1f;
-    [SerializeField] float opacity;
     [SerializeField] float nextLevelSpeed;
 
 

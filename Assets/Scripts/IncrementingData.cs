@@ -1,28 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IncrementingData : MonoBehaviour
 {
-    [Header("Incrementers")]
-    public float rocketSpeed;
-    public float healthMax;
-    public float fuelMax;
-    public float fuelEfficiency;
-    public float flyDistanceBest;
     
-    [Header("Currencies")]
-    public float money; //base resource - funding from the hippogeum
-    public float skyRock; //rock resource 1 - improves fuel capacity
-    public float skyMetal; //rock resource 2 - improves rocket speed;
-    public float scales; //dragon resource 1 - improves hull
-    public float breath; //dragon resource 2 - improves fuel eff
-    
+    [Header("Currency Banks")]
+    [SerializeField] Text coinsBank; //base resource - funding from the hippogeum
+    [SerializeField] Text coinsBankShadow; //base resource - funding from the hippogeum
+
+
     //cached references
-    public float healthCurrent;
-    public float fuelCurrent;
-    public float flyDistance;
-    
+    public int coinsBanked;
+    public int scalesBanked;
+    public int firesBanked;
+    public int rainsBanked;
+    public int sparksBanked;
+    float rocketSpeed;
+    int healthMax;
+    int fuelMax;
+    float fuelEfficiency;
+    float flyDistanceBest;
+
+
+    private void Awake()
+    {
+        int numberOfManagers = FindObjectsOfType<IncrementingData>().Length;
+        if (numberOfManagers > 1)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

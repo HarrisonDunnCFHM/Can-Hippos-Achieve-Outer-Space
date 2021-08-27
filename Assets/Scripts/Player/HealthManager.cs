@@ -15,6 +15,7 @@ public class HealthManager : MonoBehaviour
     public int numberOfCapsules;
     [SerializeField] float invulnerableCoolDown = 1f;
     [SerializeField] PopOutMenu retryMenu;
+    [SerializeField] TokenManager tokenManager;
 
     //cached references
     HippoRocket hippoRocket;
@@ -53,6 +54,7 @@ public class HealthManager : MonoBehaviour
 
     public void ResetLevel()
     {
+        tokenManager.TransferToBank();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
