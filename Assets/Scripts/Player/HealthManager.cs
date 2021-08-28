@@ -102,7 +102,7 @@ public class HealthManager : MonoBehaviour
     public void ResetLevel()
     {
         UpdateHealthData();
-        tokenManager.TransferToBank();
+        tokenManager.CacheTokenData();
         foreach(Research research in allResearch)
         {
             research.CacheResearchStats();

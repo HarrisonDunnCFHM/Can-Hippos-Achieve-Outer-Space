@@ -14,10 +14,14 @@ public class IncrementingData : MonoBehaviour
     //cached references
     public int healthMax;
     public int coinsBanked;
-    public int scalesBanked;
-    public int firesBanked;
-    public int rainsBanked;
-    public int sparksBanked;
+    public int scaleBanked;
+    public int scaleMax;
+    public int fireBanked;
+    public int fireMax;
+    public int rainBanked;
+    public int rainMax;
+    public int sparkBanked;
+    public int sparkMax;
     public float rocketSpeed;
     public int fuelMax;
     public float fuelEfficiency;

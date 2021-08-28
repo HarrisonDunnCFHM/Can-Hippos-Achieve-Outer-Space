@@ -53,10 +53,14 @@ public class TokenManager : MonoBehaviour
     void Start()
     {
         gameData = FindObjectOfType<IncrementingData>();
-        scaleBank = gameData.scalesBanked;
-        fireBank = gameData.firesBanked;
-        rainBank = gameData.rainsBanked;
-        sparkBank = gameData.sparksBanked;
+        scaleBank = gameData.scaleBanked;
+        fireBank = gameData.fireBanked;
+        rainBank = gameData.rainBanked;
+        sparkBank = gameData.sparkBanked;
+        scaleMax = gameData.scaleMax;
+        fireMax = gameData.fireMax;
+        rainMax = gameData.rainMax;
+        sparkMax = gameData.sparkMax;
         scaleCurrent = 0;
         fireCurrent = 0;
         rainCurrent = 0;
@@ -174,16 +178,20 @@ public class TokenManager : MonoBehaviour
         }
     }
 
-    public void TransferToBank()
+    public void CacheTokenData()
     {
         scaleBank += scaleCurrent;
-        gameData.scalesBanked = scaleBank;
+        gameData.scaleBanked = scaleBank;
         rainBank += rainCurrent;
-        gameData.rainsBanked = rainBank;
+        gameData.rainBanked = rainBank;
         fireBank += fireCurrent;
-        gameData.firesBanked = fireBank;
+        gameData.fireBanked = fireBank;
         sparkBank += sparkCurrent;
-        gameData.sparksBanked = sparkBank;
+        gameData.sparkBanked = sparkBank;
+        gameData.scaleMax = scaleMax;
+        gameData.fireMax = fireMax;
+        gameData.rainMax = rainMax;
+        gameData.sparkMax = sparkMax;
     }
 
     public bool AddTokens(TokenType tokenType)
@@ -260,7 +268,25 @@ public class TokenManager : MonoBehaviour
         }
     }
 
-    
+    public void IncreaseScaleMax()
+    {
+        scaleMax++;
+    }
+
+    public void IncreaseFireMax()
+    {
+        fireMax++;
+    }
+
+    public void IncreaseRainMax()
+    {
+        rainMax++;
+    }
+
+    public void IncreaseSparkMax()
+    {
+        sparkMax++;
+    }
 
 
 }

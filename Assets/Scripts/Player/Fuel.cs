@@ -91,6 +91,7 @@ public class Fuel : MonoBehaviour
     {
         outOfFuel = true;
         distanceTracker.StopAscending();
+        distanceTracker.AwardCoins();
         hippoRocket.StopEngines();
         foreach (ScrollingBackground scrollingBackground in scrollingBackGrounds)
         {

@@ -8,15 +8,17 @@ public class CoinManager : MonoBehaviour
     //config params
     [SerializeField] Text coinText;
     [SerializeField] Text coinShadow;
+    public int coinDivider;
 
     //cached ref
     int myCoins;
+    public int coinsToEarn;
     IncrementingData gameData;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameData = FindObjectOfType<IncrementingData>();
         myCoins = gameData.coinsBanked;
     }
 
@@ -33,12 +35,30 @@ public class CoinManager : MonoBehaviour
             coinText.text = myCoins.ToString();
             coinShadow.text = myCoins.ToString();
         }
-        //GainCoins(1);
+        if (coinsToEarn > 5000)
+        {
+            coinsToEarn -= 100;
+            myCoins += 100;
+        }
+        else if (coinsToEarn > 500)
+        {
+            coinsToEarn -= 10;
+            myCoins += 10;
+        }
+        else if (coinsToEarn > 0)
+        {
+            coinsToEarn--;
+            myCoins++;
+        }
+        if (coinsToEarn < 0)
+        {
+            coinsToEarn = 0;
+        }
     }
 
-    public void GainCoins(int coinsEarned)
+    public void AwardCoins(int coinsEarned)
     {
-        myCoins += coinsEarned;
+        coinsToEarn += coinsEarned;
     }
 
     public void SpendCoins(int coinsSpent)
@@ -56,6 +76,7 @@ public class CoinManager : MonoBehaviour
 
     public void BankCoins()
     {
+        myCoins += coinsToEarn;
         gameData.coinsBanked = myCoins;
     }
 }

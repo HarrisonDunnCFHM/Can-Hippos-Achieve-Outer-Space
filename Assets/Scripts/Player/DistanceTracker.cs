@@ -9,9 +9,10 @@ public class DistanceTracker : MonoBehaviour
     //config params
     [SerializeField] Text distanceText;
     [SerializeField] Text textShadow;
-    [SerializeField] float baseMoveSpeed;
+    [SerializeField] float rocketSpeed;
     [SerializeField] float endTier1;
     [SerializeField] float endTier2;
+    [SerializeField] CoinManager coinManager;
 
     [Header("Blast Offs")]
     [SerializeField] GameObject blastOffButton;
@@ -38,6 +39,9 @@ public class DistanceTracker : MonoBehaviour
     bool launchPadMove;
     bool mountainFrontMove;
     bool mountainBackMove;
+    int coinsToAward;
+    int coinsAwarded;
+    IncrementingData gameData;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,11 @@ public class DistanceTracker : MonoBehaviour
         backgrounds = new List<ScrollingBackground>(FindObjectsOfType<ScrollingBackground>());
         tier1complete = false;
         tier2complete = false;
+        gameData = FindObjectOfType<IncrementingData>();
+        if (gameData.rocketSpeed != 0)
+        {
+            rocketSpeed = gameData.rocketSpeed;
+        }
     }
 
     // Update is called once per frame
@@ -54,6 +63,13 @@ public class DistanceTracker : MonoBehaviour
         UpdateDistanceTicker();
         TierUpCheck();
         HandleTerrainParallax();
+    }
+
+    public void AwardCoins()
+    {
+        coinsToAward = Mathf.RoundToInt(currentDistance / coinManager.coinDivider);
+        coinManager.AwardCoins(coinsToAward);
+        coinsAwarded += coinsToAward;
     }
 
     private void HandleTerrainParallax()
@@ -79,7 +95,7 @@ public class DistanceTracker : MonoBehaviour
     {
         if (ascending)
         {
-            currentDistance += baseMoveSpeed * Time.deltaTime;
+            currentDistance += rocketSpeed * Time.deltaTime;
             distanceText.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
             textShadow.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
         }
@@ -93,6 +109,11 @@ public class DistanceTracker : MonoBehaviour
             distanceText.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
             textShadow.text = "Altitude: " + currentDistance.ToString("F1") + " ft.";
         }
+    }
+
+    public void IncreaseRocketSpeed(int speedIncrease)
+    {
+        rocketSpeed += speedIncrease;
     }
 
     private void TierUpCheck()
@@ -149,4 +170,8 @@ public class DistanceTracker : MonoBehaviour
         descending = true;
     }
 
+    public void CacheRocketSpeed()
+    {
+        gameData.rocketSpeed = rocketSpeed;
+    }
 }

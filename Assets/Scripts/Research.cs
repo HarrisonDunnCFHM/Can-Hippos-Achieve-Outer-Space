@@ -26,6 +26,7 @@ public class Research : MonoBehaviour
     [SerializeField] Text awardText;
 
     //cached refs
+    DistanceTracker distanceTracker;
     HealthManager healthManager;
     [SerializeField] TokenManager tokenManager;
     CoinManager coinManager;
@@ -42,6 +43,8 @@ public class Research : MonoBehaviour
         coinManager = FindObjectOfType<CoinManager>();
         healthManager = FindObjectOfType<HealthManager>();
         fuelManager = FindObjectOfType<Fuel>();
+        distanceTracker = FindObjectOfType<DistanceTracker>();
+        tokenManager = FindObjectOfType<TokenManager>();
         //researchLevel = startLevel;
         currentCoinCost = startCoinCost;
         currentTokenCost = startTokenCost;
@@ -112,6 +115,42 @@ public class Research : MonoBehaviour
         if (awardAmount == 0) { return; }
         fuelManager.UpgradeFuelEfficiency(awardAmount);
         awardBase += awardIncrease;
+    }
+
+    public void BuyRocketSpeed()
+    {
+        var awardAmount = BuyResearch();
+        if(awardAmount == 0) { return; }
+        distanceTracker.IncreaseRocketSpeed(awardAmount);
+        awardBase += awardIncrease;
+    }
+
+    public void BuyScaleMax()
+    {
+        var awardAmount = BuyResearch();
+        if (awardAmount == 0) { return; }
+        tokenManager.IncreaseScaleMax();
+    }
+
+    public void BuyFireMax()
+    {
+        var awardAmount = BuyResearch();
+        if (awardAmount == 0) { return; }
+        tokenManager.IncreaseFireMax();
+    }
+
+    public void BuyRainMax()
+    {
+        var awardAmount = BuyResearch();
+        if (awardAmount == 0) { return; }
+        tokenManager.IncreaseRainMax();
+    }
+
+    public void BuySparkMax()
+    {
+        var awardAmount = BuyResearch();
+        if (awardAmount == 0) { return; }
+        tokenManager.IncreaseSparkMax();
     }
 
     public int BuyResearch()
