@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class IncrementingData : MonoBehaviour
 {
-    
+
     [Header("Currency Banks")]
     [SerializeField] Text coinsBank; //base resource - funding from the hippogeum
     [SerializeField] Text coinsBankShadow; //base resource - funding from the hippogeum
@@ -32,6 +32,7 @@ public class IncrementingData : MonoBehaviour
     public int[] researchCoinCost = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public int[] researchTokenCost = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public int[] researchAward = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public bool[] researchUnlocked = new bool[] { true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
 
 
 

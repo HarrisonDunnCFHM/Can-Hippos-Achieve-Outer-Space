@@ -58,6 +58,7 @@ public class Research : MonoBehaviour
         if (gameData.researchTokenCost[researchIndex] == 0) { currentTokenCost = startTokenCost; }
         else { currentTokenCost = gameData.researchTokenCost[researchIndex]; }
         if (gameData.researchAward[researchIndex] != 0) { awardBase = gameData.researchAward[researchIndex]; }
+        unlocked = gameData.researchUnlocked[researchIndex];
         if (!unlocked)
         {
             gameObject.SetActive(false);
@@ -206,5 +207,6 @@ public class Research : MonoBehaviour
         gameData.researchCoinCost[researchIndex] = currentCoinCost;
         gameData.researchTokenCost[researchIndex] = currentTokenCost;
         gameData.researchAward[researchIndex] = awardBase;
+        gameData.researchUnlocked[researchIndex] = unlocked;
     }
 }

@@ -9,10 +9,12 @@ public class Dragon : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] GameObject myFireBreather;
     [SerializeField] float attackRange = 1f;
+    [SerializeField] AudioClip[] myAttacks;
 
     //cached references
     HippoRocket hippoRocket;
     bool fireShot;
+    AudioManager audioManager;
     
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class Dragon : MonoBehaviour
         hippoRocket = FindObjectOfType<HippoRocket>();
         myFireBreather.SetActive(false);
         fireShot = false;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,8 @@ public class Dragon : MonoBehaviour
         {
             myFireBreather.SetActive(true);
             fireShot = true;
+            var clipToPlay = UnityEngine.Random.Range(0, myAttacks.Length);
+            AudioSource.PlayClipAtPoint(myAttacks[clipToPlay], Camera.main.transform.position, 1.5f * audioManager.effectVolume * audioManager.masterVolume);
         }
     }
 

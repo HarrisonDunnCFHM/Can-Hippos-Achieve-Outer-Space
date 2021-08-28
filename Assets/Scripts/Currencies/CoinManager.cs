@@ -22,7 +22,7 @@ public class CoinManager : MonoBehaviour
         gameData = FindObjectOfType<IncrementingData>();
         myCoins = gameData.coinBanked;
         if(gameData.coinDivider != 0) { coinDivider = gameData.coinDivider; }
-        if(gameData.coinMultiplier != 0) { coinDivider = gameData.coinMultiplier; }
+        if(gameData.coinMultiplier != 0) { coinMultiplier = gameData.coinMultiplier; }
     }
 
     // Update is called once per frame

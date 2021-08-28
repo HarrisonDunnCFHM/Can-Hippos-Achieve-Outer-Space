@@ -11,6 +11,9 @@ public class Braincloud : MonoBehaviour
     [SerializeField] GameObject brainSpark;
     [SerializeField] float attackCooldown;
     [SerializeField] float attackDuration;
+    [SerializeField] AudioClip[] mySparking;
+    [SerializeField] AudioClip[] myBolting;
+    [SerializeField] AudioSource myAudioSource;
 
     //cached references
     HippoRocket hippoRocket;
@@ -18,6 +21,7 @@ public class Braincloud : MonoBehaviour
     bool isAttacking;
     bool chargingUp;
     bool sparkReady;
+    AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,7 @@ public class Braincloud : MonoBehaviour
         hippoRocket = FindObjectOfType<HippoRocket>();
         isAttacking = false;
         sparkReady = true;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -68,13 +73,20 @@ public class Braincloud : MonoBehaviour
     {
         isAttacking = true;
         chargingUp = true;
+        var clipToPlay = UnityEngine.Random.Range(0, mySparking.Length);
+        AudioSource.PlayClipAtPoint(mySparking[clipToPlay], Camera.main.transform.position, audioManager.effectVolume * audioManager.masterVolume);
         yield return new WaitForSeconds(attackCooldown);
         chargingUp = false;
         var newAttack = Instantiate(brainLightning, transform.position, Quaternion.identity);
         newAttack.transform.parent = gameObject.transform;
+        var attackToPlay = UnityEngine.Random.Range(0, myBolting.Length);
+        myAudioSource.clip = myBolting[attackToPlay];
+        myAudioSource.volume = audioManager.effectVolume * audioManager.masterVolume;
+        myAudioSource.Play();
         yield return new WaitForSeconds(attackDuration);
         Destroy(newAttack);
         isAttacking = false;
+        myAudioSource.Stop();
         yield return null;
     }
 

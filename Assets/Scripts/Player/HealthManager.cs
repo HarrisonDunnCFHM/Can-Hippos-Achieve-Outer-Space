@@ -39,9 +39,9 @@ public class HealthManager : MonoBehaviour
         invulnerableTimer = invulnerableCoolDown;
         myAnimator = GetComponent<Animator>();
         gameData = FindObjectOfType<IncrementingData>();
-        if(gameData.healthMax < 3 )
+        if(gameData.healthMax < 1 )
         {
-            gameData.healthMax = 3;
+            gameData.healthMax = 1;
         }
         healthMax = gameData.healthMax;
         healthCurrent = healthMax;

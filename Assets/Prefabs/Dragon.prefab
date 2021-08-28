@@ -4939,6 +4939,12 @@ MonoBehaviour:
   moveSpeed: 3
   myFireBreather: {fileID: 2126603237}
   attackRange: 0.5
+  myAttacks:
+  - {fileID: 8300000, guid: 21b733678e6f91742868ffe7e511a835, type: 3}
+  - {fileID: 8300000, guid: b944ec734e774484b9d5c5742f80b1d8, type: 3}
+  - {fileID: 8300000, guid: 5ee3f0542fedb4541a8c8f7b5f730568, type: 3}
+  - {fileID: 8300000, guid: eac90f6e53133634bace30357048c499, type: 3}
+  - {fileID: 8300000, guid: 8e1465708c214bf4490021d0f7ed2bbc, type: 3}
 --- !u!60 &2315114626181489286
 PolygonCollider2D:
   m_ObjectHideFlags: 0
