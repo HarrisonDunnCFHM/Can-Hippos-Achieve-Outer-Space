@@ -10,7 +10,7 @@ public class PopOutMenu : MonoBehaviour
     [SerializeField] Vector2 myHomePos;
     [SerializeField] Vector2 myExtendedPos;
     [SerializeField] float moveSpeed;
-    [SerializeField] bool startingMenu;
+    public bool startingMenu;
     [SerializeField] bool pausesMenu;
     enum MenuDirection { Left, Top, Right, Bottom };
     [SerializeField] MenuDirection menuHome;

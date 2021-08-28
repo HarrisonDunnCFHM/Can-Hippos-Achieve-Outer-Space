@@ -11,11 +11,13 @@ public class CoinManager : MonoBehaviour
 
     //cached ref
     int myCoins;
+    IncrementingData gameData;
     
     // Start is called before the first frame update
     void Start()
     {
-        myCoins = 1000;
+        
+        myCoins = gameData.coinsBanked;
     }
 
     // Update is called once per frame
@@ -48,5 +50,12 @@ public class CoinManager : MonoBehaviour
         if (toRemove > myCoins)
         { return false; }
         else { return true; }
+    }
+
+ 
+
+    public void BankCoins()
+    {
+        gameData.coinsBanked = myCoins;
     }
 }

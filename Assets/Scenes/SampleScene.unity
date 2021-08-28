@@ -196,7 +196,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 2120514356}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &1152713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1417367652}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &144630517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,7 +2830,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 670070128}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &495422498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3077,7 +3077,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1530142372}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &496994993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3723,7 +3723,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1391426902}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &585889024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4284,7 +4284,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1480365634}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &639956219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4664,7 +4664,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1842390486}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &679887726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5360,7 +5360,7 @@ GameObject:
   - component: {fileID: 819299067}
   - component: {fileID: 819299066}
   m_Layer: 5
-  m_Name: Upgrade Health (2)
+  m_Name: Upgrade Fuel Efficiency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5402,24 +5402,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f21a7919134ec64f841f78875ce6e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  researchName: Reinforced Hull
-  researchIndex: 0
+  researchName: Dragon Fire Fuel
+  researchIndex: 2
   researchText: {fileID: 39036291}
   startLevel: 0
-  researchMax: 3
+  researchMax: 999
   levelText: {fileID: 495828160}
   startCoinCost: 10
   coinCostText: {fileID: 1777877784}
   startTokenCost: 0
-  tokenCostType: 1
+  tokenCostType: 2
   tokenCostText: {fileID: 1651704843}
   coinCostGrowth: 2
   tokenCostGrowth: 1
-  awardBase: 0
+  awardBase: 9
   awardIncrease: 0
-  awardDescription: Grants additional armor capsule
+  awardDescription: Burns fuel more efficiently using real dragon fire!
   awardText: {fileID: 540355029}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &819299067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5466,7 +5466,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 819299066}
         m_TargetAssemblyTypeName: Research, Assembly-CSharp
-        m_MethodName: BuyHealthUpgrade
+        m_MethodName: BuyFuelEffUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5846,7 +5846,7 @@ GameObject:
   - component: {fileID: 878112616}
   - component: {fileID: 878112615}
   m_Layer: 5
-  m_Name: Upgrade Health (1)
+  m_Name: Embiggened Fuel Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5888,24 +5888,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f21a7919134ec64f841f78875ce6e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  researchName: Reinforced Hull
-  researchIndex: 0
+  researchName: Embiggened Fuel Tank
+  researchIndex: 1
   researchText: {fileID: 182117246}
   startLevel: 0
-  researchMax: 3
+  researchMax: 5
   levelText: {fileID: 58478696}
   startCoinCost: 10
   coinCostText: {fileID: 1797355018}
   startTokenCost: 0
-  tokenCostType: 1
+  tokenCostType: 2
   tokenCostText: {fileID: 1913997882}
   coinCostGrowth: 2
-  tokenCostGrowth: 1
-  awardBase: 0
+  tokenCostGrowth: 0
+  awardBase: 100
   awardIncrease: 0
-  awardDescription: Grants additional armor capsule
+  awardDescription: Grants additional fuel capacity
   awardText: {fileID: 1138443287}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &878112616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5952,7 +5952,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 878112615}
         m_TargetAssemblyTypeName: Research, Assembly-CSharp
-        m_MethodName: BuyHealthUpgrade
+        m_MethodName: BuyFuelUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6466,7 +6466,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1707603266}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &965347649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6614,12 +6614,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMenu: {fileID: 0}
-  myHomePos: {x: 0, y: -600}
+  myHomePos: {x: 0, y: 600}
   myExtendedPos: {x: 0, y: 0}
   moveSpeed: 5000
   startingMenu: 0
   pausesMenu: 0
-  menuHome: 3
+  menuHome: 1
   isExtending: 0
   isRetracting: 0
 --- !u!114 &968087105
@@ -6898,7 +6898,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 690449694}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &1044614837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7024,13 +7024,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsBank: {fileID: 0}
   coinsBankShadow: {fileID: 0}
+  healthMax: 0
   coinsBanked: 0
   scalesBanked: 0
-  firesBanked: 0
+  firesBanked: 999
   rainsBanked: 0
   sparksBanked: 0
   rocketSpeed: 0
-  healthMax: 0
   fuelMax: 0
   fuelEfficiency: 0
   flyDistanceBest: 0
@@ -7306,7 +7306,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 8993675209791046468}
-  - {fileID: 5459719723388962868}
+  - {fileID: 8730899850080389377}
   - {fileID: 344947372}
   - {fileID: 1940723359065577909}
   - {fileID: 8954466131947741733}
@@ -8478,7 +8478,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1207230256}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &1364046095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9745,7 +9745,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1237330325}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &1506628758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10148,7 +10148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchName: Reinforced Hull
-  researchIndex: 1
+  researchIndex: 0
   researchText: {fileID: 192359988}
   startLevel: 0
   researchMax: 3
@@ -12179,7 +12179,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1659813784}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &1836472900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12509,7 +12509,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1299062594}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &1893122448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13077,7 +13077,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 42399132}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &2007544131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13803,7 +13803,7 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1630779020}
-  tokenManager: {fileID: 0}
+  tokenManager: {fileID: 1518856778}
 --- !u!114 &2119843123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14688,9 +14688,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6973103588422316385}
     - target: {fileID: 6235077770868514917, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: retryMenu
+      value: 
+      objectReference: {fileID: 968087104}
+    - target: {fileID: 6235077770868514917, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: fuelSlider
       value: 
       objectReference: {fileID: 1905056855748457655}
+    - target: {fileID: 6235077770868514917, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: fuelBurnRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235077770868514917, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: fuelGaugeHomePos.x
+      value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235077770868514917, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: fuelGaugeHomePos.y
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 6367470969945529793, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: fireManager
       value: 
@@ -14715,6 +14731,18 @@ PrefabInstance:
       propertyPath: retryMenu
       value: 
       objectReference: {fileID: 968087104}
+    - target: {fileID: 7391128746506255737, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: coinManager
+      value: 
+      objectReference: {fileID: 8954466131947741732}
+    - target: {fileID: 7391128746506255737, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: fuelManager
+      value: 
+      objectReference: {fileID: 35348066}
+    - target: {fileID: 7391128746506255737, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
+      propertyPath: upgradeMenu
+      value: 
+      objectReference: {fileID: 1503246714}
     - target: {fileID: 7391128746506255737, guid: 70bde2301f28f8f4f88a6e61480796e3, type: 3}
       propertyPath: tokenManager
       value: 
@@ -14780,22 +14808,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5475177373968619513}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5722542854041128636}
   - {fileID: 4566133083143630275}
   - {fileID: 9139499600160621342}
-  - {fileID: 8730899850080389377}
-  - {fileID: 6438572979499116238}
-  - {fileID: 5929333230478121302}
-  m_Father: {fileID: 1150851949}
-  m_RootOrder: 1
+  m_Father: {fileID: 8730899850080389377}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: -345}
+  m_AnchoredPosition: {x: -135, y: -50}
   m_SizeDelta: {x: 100, y: 80.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5475177373968619513
@@ -14978,15 +15003,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917012243623644901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.0000696}
+  m_LocalPosition: {x: 0, y: 0, z: -0.99975586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5459719723388962868}
-  m_RootOrder: 5
+  m_Father: {fileID: 8730899850080389377}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.599915, y: 3.999939}
+  m_AnchoredPosition: {x: -122.400085, y: -46.700012}
   m_SizeDelta: {x: 116.17, y: 31.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5942860946119647641
@@ -15056,12 +15081,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5459719723388962868}
-  m_RootOrder: 4
+  m_Father: {fileID: 8730899850080389377}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.99994, y: 55.69995}
+  m_AnchoredPosition: {x: -4.999939, y: 5}
   m_SizeDelta: {x: 357.68, y: 67.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6540987061930257617
@@ -15342,13 +15367,16 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5459719723388962868}
-  m_RootOrder: 3
+  m_Children:
+  - {fileID: 5459719723388962868}
+  - {fileID: 5929333230478121302}
+  - {fileID: 6438572979499116238}
+  m_Father: {fileID: 1150851949}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 134.99994, y: 50.69995}
+  m_AnchoredPosition: {x: -605.00006, y: -294.30005}
   m_SizeDelta: {x: 357.68, y: 67.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8954466131740198020
@@ -16562,8 +16590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 589.98, y: -490}
-  m_SizeDelta: {x: 554.8, y: 102.82}
+  m_AnchoredPosition: {x: 597.11, y: -490}
+  m_SizeDelta: {x: 540.54, y: 102.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8954466133249083543
 CanvasRenderer:

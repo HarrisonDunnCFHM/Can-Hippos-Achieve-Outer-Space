@@ -16,6 +16,8 @@ public class HealthManager : MonoBehaviour
     [SerializeField] float invulnerableCoolDown = 1f;
     [SerializeField] PopOutMenu retryMenu;
     [SerializeField] TokenManager tokenManager;
+    [SerializeField] Fuel fuelManager;
+    [SerializeField] CoinManager coinManager;
     
 
     //cached references
@@ -90,8 +92,7 @@ public class HealthManager : MonoBehaviour
         if(healthCurrent <= 0)
         {
             hippoRocket.StopEngines();
-            fuel.OutOfFuel();
-            retryMenu.ToggleMenu();
+            fuel.OutOfFuel(); //this function will toggle the retry menu open
             Time.timeScale = 1f;
             invulnerable = true;
         }
@@ -106,6 +107,8 @@ public class HealthManager : MonoBehaviour
         {
             research.CacheResearchStats();
         }
+        fuelManager.CacheFuelStats();
+        coinManager.BankCoins();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void UpdateHealthData()

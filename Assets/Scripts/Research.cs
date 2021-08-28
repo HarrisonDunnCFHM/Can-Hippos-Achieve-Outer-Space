@@ -34,13 +34,14 @@ public class Research : MonoBehaviour
     int researchLevel;
     TokenManager myTokenManager;
     IncrementingData gameData;
-  
+    Fuel fuelManager;
 
     // Start is called before the first frame update
     void Start()
     {
         coinManager = FindObjectOfType<CoinManager>();
         healthManager = FindObjectOfType<HealthManager>();
+        fuelManager = FindObjectOfType<Fuel>();
         //researchLevel = startLevel;
         currentCoinCost = startCoinCost;
         currentTokenCost = startTokenCost;
@@ -93,11 +94,27 @@ public class Research : MonoBehaviour
     {
         var awardAmount = BuyResearch();
         if ( awardAmount == 0) { return; }
-        healthManager.UpgradeHealth((int)awardAmount);
+        healthManager.UpgradeHealth(awardAmount);
         awardBase += awardIncrease;
     }
 
-    public float BuyResearch()
+    public void BuyFuelUpgrade()
+    {
+        var awardAmount = BuyResearch();
+        if(awardAmount == 0) { return; }
+        fuelManager.UpgradeFuel(awardAmount);
+        awardBase += awardIncrease;
+    }
+
+    public void BuyFuelEffUpgrade()
+    {
+        var awardAmount = BuyResearch();
+        if (awardAmount == 0) { return; }
+        fuelManager.UpgradeFuelEfficiency(awardAmount);
+        awardBase += awardIncrease;
+    }
+
+    public int BuyResearch()
     {
         if (researchLevel == researchMax) { return 0; }
         if (!coinManager.CheckAvailable(currentCoinCost)) { return 0; }
