@@ -16,6 +16,7 @@ public class Research : MonoBehaviour
     [SerializeField] int startCoinCost;
     [SerializeField] Text coinCostText;
     [SerializeField] int startTokenCost;
+    [SerializeField] int tokenCostMax = 3;
     [SerializeField] TokenManager.TokenType tokenCostType;
     [SerializeField] Text tokenCostText;
     [SerializeField] float coinCostGrowth;
@@ -24,6 +25,8 @@ public class Research : MonoBehaviour
     [SerializeField] int awardIncrease;
     [SerializeField] string awardDescription;
     [SerializeField] Text awardText;
+    [SerializeField] bool unlocked;
+    [SerializeField] Research[] unlocks;
 
     //cached refs
     DistanceTracker distanceTracker;
@@ -55,7 +58,10 @@ public class Research : MonoBehaviour
         if (gameData.researchTokenCost[researchIndex] == 0) { currentTokenCost = startTokenCost; }
         else { currentTokenCost = gameData.researchTokenCost[researchIndex]; }
         if (gameData.researchAward[researchIndex] != 0) { awardBase = gameData.researchAward[researchIndex]; }
-        
+        if (!unlocked)
+        {
+            gameObject.SetActive(false);
+        }
 
     }
 
@@ -67,6 +73,7 @@ public class Research : MonoBehaviour
 
     private void DisplayResearchInfo()
     {
+        
         researchText.text = researchName;
         if (researchLevel == researchMax)
         {
@@ -153,6 +160,20 @@ public class Research : MonoBehaviour
         tokenManager.IncreaseSparkMax();
     }
 
+    public void BuyCoinDividerUpgrade()
+    {
+        var awardAmount = BuyResearch();
+        if (awardAmount == 0) { return; }
+        coinManager.UpgradeCoinDivider(awardAmount);
+    }
+
+    public void BuyCoinMultiplier()
+    {
+        var awardAmount = BuyResearch();
+        if (awardAmount == 0) { return; }
+        coinManager.UpgradeCoinMultiplier();
+    }
+
     public int BuyResearch()
     {
         if (researchLevel == researchMax) { return 0; }
@@ -161,9 +182,22 @@ public class Research : MonoBehaviour
         if (!enoughTokens) { return 0; }
         coinManager.SpendCoins(currentCoinCost);
         currentCoinCost = Mathf.RoundToInt(coinCostGrowth * currentCoinCost);
-        currentTokenCost += tokenCostGrowth;
+        if (currentTokenCost < tokenCostMax)
+        {
+            currentTokenCost += tokenCostGrowth;
+        }
         researchLevel++;
+        UnlockResearch(unlocks);
         return awardBase;
+    }
+
+    public void UnlockResearch(Research[] unlockedResearches)
+    {
+        for (int i = 0; i < unlockedResearches.Length; i++)
+        {
+            unlocked = true;
+            unlockedResearches[i].gameObject.SetActive(true);
+        }
     }
 
     public void CacheResearchStats()

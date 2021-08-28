@@ -108,7 +108,7 @@ public class HealthManager : MonoBehaviour
             research.CacheResearchStats();
         }
         fuelManager.CacheFuelStats();
-        coinManager.BankCoins();
+        coinManager.CacheCoinInfo();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void UpdateHealthData()

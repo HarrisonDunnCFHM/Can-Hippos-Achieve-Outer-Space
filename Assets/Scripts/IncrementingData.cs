@@ -13,7 +13,9 @@ public class IncrementingData : MonoBehaviour
 
     //cached references
     public int healthMax;
-    public int coinsBanked;
+    public int coinBanked;
+    public int coinDivider;
+    public int coinMultiplier;
     public int scaleBanked;
     public int scaleMax;
     public int fireBanked;

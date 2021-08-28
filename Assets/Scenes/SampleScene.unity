@@ -188,6 +188,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 326387467}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 2117317923}
   coinCostGrowth: 2
@@ -196,6 +197,10 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Suck up those brain clouds and get some brain juice!
   awardText: {fileID: 2120514356}
+  unlocked: 0
+  unlocks:
+  - {fileID: 1506628757}
+  - {fileID: 1836472899}
   tokenManager: {fileID: 1518856778}
 --- !u!114 &1152713
 MonoBehaviour:
@@ -1034,6 +1039,7 @@ MonoBehaviour:
   startCoinCost: 100
   coinCostText: {fileID: 2038736347}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 829017906}
   coinCostGrowth: 10
@@ -1042,6 +1048,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Store additional brain power each flight.
   awardText: {fileID: 1417367652}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &144630517
 MonoBehaviour:
@@ -2822,6 +2830,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 567139891}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 1828752670}
   coinCostGrowth: 2
@@ -2830,6 +2839,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 670070128}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &495422498
 MonoBehaviour:
@@ -3069,6 +3080,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 144009257}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 1319682020}
   coinCostGrowth: 2
@@ -3078,6 +3090,10 @@ MonoBehaviour:
   awardDescription: A jar to safely hold dragon fire. Allows you to capture dragon
     fire during flight!
   awardText: {fileID: 1530142372}
+  unlocked: 0
+  unlocks:
+  - {fileID: 1152712}
+  - {fileID: 679887725}
   tokenManager: {fileID: 1518856778}
 --- !u!114 &496994993
 MonoBehaviour:
@@ -3716,6 +3732,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 2131284418}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 625008835}
   coinCostGrowth: 2
@@ -3724,6 +3741,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1391426902}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &585889024
 MonoBehaviour:
@@ -4226,7 +4245,7 @@ GameObject:
   - component: {fileID: 639956219}
   - component: {fileID: 639956218}
   m_Layer: 5
-  m_Name: Upgrade Health (5)
+  m_Name: Coin Divider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4268,23 +4287,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f21a7919134ec64f841f78875ce6e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  researchName: Reinforced Hull
+  researchName: Interested Investors
   researchIndex: 5
   researchText: {fileID: 1448018784}
   startLevel: 0
-  researchMax: 3
+  researchMax: 7
   levelText: {fileID: 2053623207}
-  startCoinCost: 10
+  startCoinCost: 100
   coinCostText: {fileID: 1279287769}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 740699869}
-  coinCostGrowth: 2
-  tokenCostGrowth: 1
+  coinCostGrowth: 10
+  tokenCostGrowth: 0
   awardBase: 0
   awardIncrease: 0
-  awardDescription: Grants additional armor capsule
+  awardDescription: Investors are slightly more interested in your progress, reducing
+    the number of feet per coin earned.
   awardText: {fileID: 1480365634}
+  unlocked: 0
+  unlocks:
+  - {fileID: 1044614836}
   tokenManager: {fileID: 1518856778}
 --- !u!114 &639956219
 MonoBehaviour:
@@ -4332,7 +4356,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 639956218}
         m_TargetAssemblyTypeName: Research, Assembly-CSharp
-        m_MethodName: BuyHealthUpgrade
+        m_MethodName: BuyCoinDividerUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4657,6 +4681,7 @@ MonoBehaviour:
   startCoinCost: 100
   coinCostText: {fileID: 39611326}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 906486829}
   coinCostGrowth: 10
@@ -4665,6 +4690,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Carry more jars in your rocket ship.
   awardText: {fileID: 1842390486}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &679887726
 MonoBehaviour:
@@ -5412,6 +5439,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 1777877784}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 2
   tokenCostText: {fileID: 1651704843}
   coinCostGrowth: 2
@@ -5420,6 +5448,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Burns fuel more efficiently using real dragon fire!
   awardText: {fileID: 540355029}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &819299067
 MonoBehaviour:
@@ -5898,6 +5928,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 1797355018}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 2
   tokenCostText: {fileID: 1913997882}
   coinCostGrowth: 2
@@ -5906,6 +5937,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional fuel capacity
   awardText: {fileID: 1138443287}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &878112616
 MonoBehaviour:
@@ -6459,6 +6492,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 626278793}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 1445113484}
   coinCostGrowth: 2
@@ -6467,6 +6501,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1707603266}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &965347649
 MonoBehaviour:
@@ -6840,7 +6876,7 @@ GameObject:
   - component: {fileID: 1044614837}
   - component: {fileID: 1044614836}
   m_Layer: 5
-  m_Name: Upgrade Health (11)
+  m_Name: Upgrade Coin Multiplier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6882,23 +6918,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f21a7919134ec64f841f78875ce6e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  researchName: Reinforced Hull
+  researchName: Invested Investors
   researchIndex: 11
   researchText: {fileID: 1219131774}
   startLevel: 0
-  researchMax: 3
+  researchMax: 999
   levelText: {fileID: 882678258}
-  startCoinCost: 10
+  startCoinCost: 1000
   coinCostText: {fileID: 288744930}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 1337964199}
-  coinCostGrowth: 2
-  tokenCostGrowth: 1
+  coinCostGrowth: 100
+  tokenCostGrowth: 0
   awardBase: 0
   awardIncrease: 0
-  awardDescription: Grants additional armor capsule
+  awardDescription: Invest in investors who are invested in your investitures. Doubles
+    coins earned per flight!
   awardText: {fileID: 690449694}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &1044614837
 MonoBehaviour:
@@ -6946,7 +6986,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1044614836}
         m_TargetAssemblyTypeName: Research, Assembly-CSharp
-        m_MethodName: BuyHealthUpgrade
+        m_MethodName: BuyCoinMultiplier
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7026,7 +7066,9 @@ MonoBehaviour:
   coinsBank: {fileID: 0}
   coinsBankShadow: {fileID: 0}
   healthMax: 0
-  coinsBanked: 0
+  coinBanked: 0
+  coinDivider: 0
+  coinMultiplier: 0
   scaleBanked: 0
   scaleMax: 0
   fireBanked: 0
@@ -8475,6 +8517,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 1771956412}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 3
   tokenCostText: {fileID: 1672719430}
   coinCostGrowth: 2
@@ -8483,6 +8526,8 @@ MonoBehaviour:
   awardIncrease: 10
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1207230256}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &1364046095
 MonoBehaviour:
@@ -9742,6 +9787,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 2111651313}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 1700397665}
   coinCostGrowth: 2
@@ -9751,6 +9797,9 @@ MonoBehaviour:
   awardDescription: Gain the power to collect powerful psychic lightning from brain
     clouds!
   awardText: {fileID: 1237330325}
+  unlocked: 0
+  unlocks:
+  - {fileID: 144630516}
   tokenManager: {fileID: 1518856778}
 --- !u!114 &1506628758
 MonoBehaviour:
@@ -10162,6 +10211,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 638067058}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 1583758797}
   coinCostGrowth: 2
@@ -10170,6 +10220,12 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 391324611}
+  unlocked: 1
+  unlocks:
+  - {fileID: 878112615}
+  - {fileID: 819299066}
+  - {fileID: 1364046094}
+  - {fileID: 2007544130}
   tokenManager: {fileID: 1518856778}
 --- !u!114 &1541179815
 MonoBehaviour:
@@ -12177,6 +12233,7 @@ MonoBehaviour:
   startCoinCost: 100
   coinCostText: {fileID: 2053454238}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 813846302}
   coinCostGrowth: 10
@@ -12186,6 +12243,8 @@ MonoBehaviour:
   awardDescription: Install an extra cupholder within easy reach so you can carry
     more brain juice each flight.
   awardText: {fileID: 1659813784}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &1836472900
 MonoBehaviour:
@@ -12508,6 +12567,7 @@ MonoBehaviour:
   startCoinCost: 100
   coinCostText: {fileID: 1992194067}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 116123754}
   coinCostGrowth: 10
@@ -12516,6 +12576,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Catch more scales each flight!
   awardText: {fileID: 1299062594}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &1893122448
 MonoBehaviour:
@@ -13076,6 +13138,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 732109949}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 1629175877}
   coinCostGrowth: 2
@@ -13084,6 +13147,11 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Allows you to catch dragons for their scales. It's humane. Mostly.
   awardText: {fileID: 42399132}
+  unlocked: 0
+  unlocks:
+  - {fileID: 496994992}
+  - {fileID: 1893122447}
+  - {fileID: 639956218}
   tokenManager: {fileID: 1518856778}
 --- !u!114 &2007544131
 MonoBehaviour:
@@ -13802,6 +13870,7 @@ MonoBehaviour:
   startCoinCost: 10
   coinCostText: {fileID: 477879949}
   startTokenCost: 0
+  tokenCostMax: 3
   tokenCostType: 1
   tokenCostText: {fileID: 989219639}
   coinCostGrowth: 2
@@ -13810,6 +13879,8 @@ MonoBehaviour:
   awardIncrease: 0
   awardDescription: Grants additional armor capsule
   awardText: {fileID: 1630779020}
+  unlocked: 0
+  unlocks: []
   tokenManager: {fileID: 1518856778}
 --- !u!114 &2119843123
 MonoBehaviour:
@@ -15750,6 +15821,7 @@ MonoBehaviour:
   coinText: {fileID: 8954466132784499973}
   coinShadow: {fileID: 8954466133249083540}
   coinDivider: 10
+  coinMultiplier: 1
   coinsToEarn: 99999
 --- !u!224 &8954466131947741733
 RectTransform:

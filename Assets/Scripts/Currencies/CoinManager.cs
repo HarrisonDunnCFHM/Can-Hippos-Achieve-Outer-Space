@@ -9,6 +9,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] Text coinText;
     [SerializeField] Text coinShadow;
     public int coinDivider;
+    public int coinMultiplier = 1;
 
     //cached ref
     int myCoins;
@@ -19,7 +20,9 @@ public class CoinManager : MonoBehaviour
     void Start()
     {
         gameData = FindObjectOfType<IncrementingData>();
-        myCoins = gameData.coinsBanked;
+        myCoins = gameData.coinBanked;
+        if(gameData.coinDivider != 0) { coinDivider = gameData.coinDivider; }
+        if(gameData.coinMultiplier != 0) { coinDivider = gameData.coinMultiplier; }
     }
 
     // Update is called once per frame
@@ -61,6 +64,15 @@ public class CoinManager : MonoBehaviour
         coinsToEarn += coinsEarned;
     }
 
+    public void UpgradeCoinDivider(int awardedDivider)
+    {
+        coinDivider -= awardedDivider;
+    }
+    public void UpgradeCoinMultiplier()
+    {
+        coinMultiplier *= 2;
+    }
+
     public void SpendCoins(int coinsSpent)
     {
         myCoins -= coinsSpent;
@@ -72,11 +84,12 @@ public class CoinManager : MonoBehaviour
         else { return true; }
     }
 
- 
 
-    public void BankCoins()
+    public void CacheCoinInfo()
     {
         myCoins += coinsToEarn;
-        gameData.coinsBanked = myCoins;
+        gameData.coinBanked = myCoins;
+        gameData.coinDivider = coinDivider;
+        gameData.coinMultiplier = coinMultiplier;
     }
 }

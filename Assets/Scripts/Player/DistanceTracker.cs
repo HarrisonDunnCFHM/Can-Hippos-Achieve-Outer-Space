@@ -67,7 +67,7 @@ public class DistanceTracker : MonoBehaviour
 
     public void AwardCoins()
     {
-        coinsToAward = Mathf.RoundToInt(currentDistance / coinManager.coinDivider);
+        coinsToAward = Mathf.RoundToInt(currentDistance / coinManager.coinDivider) * coinManager.coinMultiplier;
         coinManager.AwardCoins(coinsToAward);
         coinsAwarded += coinsToAward;
     }
