@@ -16096,6 +16096,13 @@ MonoBehaviour:
   coinShadow: {fileID: 8954466133249083540}
   coinDivider: 10
   coinMultiplier: 1
+  myPlinks:
+  - {fileID: 8300000, guid: 2322d1befbd41be4785f92337c40111e, type: 3}
+  - {fileID: 8300000, guid: 7d6f53acdff91ae44bca4e60572423e7, type: 3}
+  - {fileID: 8300000, guid: 0b87f0fa54533dc4b84bde38fdad9dcb, type: 3}
+  - {fileID: 8300000, guid: 7f700bc1c163d8146bb46b81847dd467, type: 3}
+  - {fileID: 8300000, guid: cd832fe7695f76f40bfd24ce85e80777, type: 3}
+  - {fileID: 8300000, guid: cf2d55aad183d45408250d5565cbcfd2, type: 3}
   coinsToEarn: 0
 --- !u!224 &8954466131947741733
 RectTransform:

@@ -10,11 +10,13 @@ public class CoinManager : MonoBehaviour
     [SerializeField] Text coinShadow;
     public int coinDivider;
     public int coinMultiplier = 1;
+    [SerializeField] AudioClip[] myPlinks;
 
     //cached ref
     int myCoins;
     public int coinsToEarn;
     IncrementingData gameData;
+    AudioManager audioManager;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class CoinManager : MonoBehaviour
         myCoins = gameData.coinBanked;
         if(gameData.coinDivider != 0) { coinDivider = gameData.coinDivider; }
         if(gameData.coinMultiplier != 0) { coinMultiplier = gameData.coinMultiplier; }
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -40,16 +43,19 @@ public class CoinManager : MonoBehaviour
         }
         if (coinsToEarn > 5000)
         {
+            PlayCoinPlink();
             coinsToEarn -= 100;
             myCoins += 100;
         }
         else if (coinsToEarn > 500)
         {
+            PlayCoinPlink();
             coinsToEarn -= 10;
             myCoins += 10;
         }
         else if (coinsToEarn > 0)
         {
+            PlayCoinPlink();
             coinsToEarn--;
             myCoins++;
         }
@@ -57,6 +63,12 @@ public class CoinManager : MonoBehaviour
         {
             coinsToEarn = 0;
         }
+    }
+
+    private void PlayCoinPlink()
+    {
+        var clipToPlay = UnityEngine.Random.Range(0, myPlinks.Length);
+        AudioSource.PlayClipAtPoint(myPlinks[clipToPlay], Camera.main.transform.position, .5f * audioManager.effectVolume * audioManager.masterVolume); ;
     }
 
     public void AwardCoins(int coinsEarned)
