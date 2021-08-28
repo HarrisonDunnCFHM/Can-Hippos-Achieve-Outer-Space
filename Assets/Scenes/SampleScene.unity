@@ -10193,6 +10193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e791308e926b488a69ff79380fd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleBankObject: {fileID: 1879920981}
   scalesBankText: {fileID: 955945565}
   scalesBankShadow: {fileID: 1879920983}
   scaleImages:
@@ -10202,6 +10203,7 @@ MonoBehaviour:
   scaleFull: {fileID: 7207841550284485562, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleEmpty: {fileID: -712467422108299619, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleMax: 0
+  fireBankObject: {fileID: 315146741}
   firesBankText: {fileID: 852001500}
   firesBankShadow: {fileID: 315146743}
   fireImages:
@@ -10211,6 +10213,7 @@ MonoBehaviour:
   fireFull: {fileID: -8125662423788390143, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireEmpty: {fileID: -1212148547531554660, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireMax: 0
+  rainBankObject: {fileID: 1106101845}
   rainsBankText: {fileID: 261518922}
   rainsBankShadow: {fileID: 1106101847}
   rainImages:
@@ -10220,6 +10223,7 @@ MonoBehaviour:
   rainFull: {fileID: 9070235169400442938, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainEmpty: {fileID: -9004434152991616188, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainMax: 0
+  sparkBankObject: {fileID: 288135477}
   sparksBankText: {fileID: 1569810912}
   sparksBankShadow: {fileID: 288135479}
   sparkImages:
@@ -15865,6 +15869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e791308e926b488a69ff79380fd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleBankObject: {fileID: 0}
   scalesBankText: {fileID: 0}
   scalesBankShadow: {fileID: 0}
   scaleImages:
@@ -15874,6 +15879,7 @@ MonoBehaviour:
   scaleFull: {fileID: 7207841550284485562, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleEmpty: {fileID: -712467422108299619, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleMax: 3
+  fireBankObject: {fileID: 0}
   firesBankText: {fileID: 0}
   firesBankShadow: {fileID: 0}
   fireImages:
@@ -15883,6 +15889,7 @@ MonoBehaviour:
   fireFull: {fileID: -8125662423788390143, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireEmpty: {fileID: -1212148547531554660, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireMax: 3
+  rainBankObject: {fileID: 0}
   rainsBankText: {fileID: 0}
   rainsBankShadow: {fileID: 0}
   rainImages:
@@ -15892,6 +15899,7 @@ MonoBehaviour:
   rainFull: {fileID: 9070235169400442938, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainEmpty: {fileID: -9004434152991616188, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainMax: 3
+  sparkBankObject: {fileID: 0}
   sparksBankText: {fileID: 0}
   sparksBankShadow: {fileID: 0}
   sparkImages:
@@ -15988,6 +15996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e791308e926b488a69ff79380fd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleBankObject: {fileID: 0}
   scalesBankText: {fileID: 0}
   scalesBankShadow: {fileID: 0}
   scaleImages:
@@ -15997,6 +16006,7 @@ MonoBehaviour:
   scaleFull: {fileID: 7207841550284485562, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleEmpty: {fileID: -712467422108299619, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleMax: 3
+  fireBankObject: {fileID: 0}
   firesBankText: {fileID: 0}
   firesBankShadow: {fileID: 0}
   fireImages:
@@ -16006,6 +16016,7 @@ MonoBehaviour:
   fireFull: {fileID: -8125662423788390143, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireEmpty: {fileID: -1212148547531554660, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireMax: 3
+  rainBankObject: {fileID: 0}
   rainsBankText: {fileID: 0}
   rainsBankShadow: {fileID: 0}
   rainImages:
@@ -16015,6 +16026,7 @@ MonoBehaviour:
   rainFull: {fileID: 9070235169400442938, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainEmpty: {fileID: -9004434152991616188, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainMax: 0
+  sparkBankObject: {fileID: 0}
   sparksBankText: {fileID: 0}
   sparksBankShadow: {fileID: 0}
   sparkImages:
@@ -16834,6 +16846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e791308e926b488a69ff79380fd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleBankObject: {fileID: 0}
   scalesBankText: {fileID: 0}
   scalesBankShadow: {fileID: 0}
   scaleImages:
@@ -16843,6 +16856,7 @@ MonoBehaviour:
   scaleFull: {fileID: 7207841550284485562, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleEmpty: {fileID: -712467422108299619, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleMax: 3
+  fireBankObject: {fileID: 0}
   firesBankText: {fileID: 0}
   firesBankShadow: {fileID: 0}
   fireImages:
@@ -16852,6 +16866,7 @@ MonoBehaviour:
   fireFull: {fileID: -8125662423788390143, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireEmpty: {fileID: -1212148547531554660, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireMax: 3
+  rainBankObject: {fileID: 0}
   rainsBankText: {fileID: 0}
   rainsBankShadow: {fileID: 0}
   rainImages:
@@ -16861,6 +16876,7 @@ MonoBehaviour:
   rainFull: {fileID: 9070235169400442938, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainEmpty: {fileID: -9004434152991616188, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainMax: 3
+  sparkBankObject: {fileID: 0}
   sparksBankText: {fileID: 0}
   sparksBankShadow: {fileID: 0}
   sparkImages:
@@ -16983,6 +16999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e791308e926b488a69ff79380fd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleBankObject: {fileID: 0}
   scalesBankText: {fileID: 0}
   scalesBankShadow: {fileID: 0}
   scaleImages:
@@ -16992,6 +17009,7 @@ MonoBehaviour:
   scaleFull: {fileID: 7207841550284485562, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleEmpty: {fileID: -712467422108299619, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   scaleMax: 3
+  fireBankObject: {fileID: 0}
   firesBankText: {fileID: 0}
   firesBankShadow: {fileID: 0}
   fireImages:
@@ -17001,6 +17019,7 @@ MonoBehaviour:
   fireFull: {fileID: -8125662423788390143, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireEmpty: {fileID: -1212148547531554660, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   fireMax: 0
+  rainBankObject: {fileID: 0}
   rainsBankText: {fileID: 0}
   rainsBankShadow: {fileID: 0}
   rainImages:
@@ -17010,6 +17029,7 @@ MonoBehaviour:
   rainFull: {fileID: 9070235169400442938, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainEmpty: {fileID: -9004434152991616188, guid: 6f5e787505e51ff43809a65d3b65c9be, type: 3}
   rainMax: 3
+  sparkBankObject: {fileID: 0}
   sparksBankText: {fileID: 0}
   sparksBankShadow: {fileID: 0}
   sparkImages:

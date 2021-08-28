@@ -43,19 +43,19 @@ public class CoinManager : MonoBehaviour
         }
         if (coinsToEarn > 5000)
         {
-            PlayCoinPlink();
+            StartCoroutine(PlayCoinPlink());
             coinsToEarn -= 100;
             myCoins += 100;
         }
         else if (coinsToEarn > 500)
         {
-            PlayCoinPlink();
+            StartCoroutine(PlayCoinPlink());
             coinsToEarn -= 10;
             myCoins += 10;
         }
         else if (coinsToEarn > 0)
         {
-            PlayCoinPlink();
+            StartCoroutine(PlayCoinPlink());
             coinsToEarn--;
             myCoins++;
         }
@@ -65,8 +65,9 @@ public class CoinManager : MonoBehaviour
         }
     }
 
-    private void PlayCoinPlink()
+    private IEnumerator PlayCoinPlink()
     {
+        yield return new WaitForSeconds(0.3f);
         var clipToPlay = UnityEngine.Random.Range(0, myPlinks.Length);
         AudioSource.PlayClipAtPoint(myPlinks[clipToPlay], Camera.main.transform.position, .5f * audioManager.effectVolume * audioManager.masterVolume); ;
     }

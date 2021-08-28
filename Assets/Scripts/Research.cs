@@ -196,7 +196,7 @@ public class Research : MonoBehaviour
     {
         for (int i = 0; i < unlockedResearches.Length; i++)
         {
-            unlocked = true;
+            unlockedResearches[i].unlocked = true;
             unlockedResearches[i].gameObject.SetActive(true);
         }
     }

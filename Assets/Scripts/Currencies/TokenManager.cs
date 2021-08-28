@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class TokenManager : MonoBehaviour
 {
     public enum TokenType {Coin, Scale, Fire, Rain, Spark};
-    
+
     [Header("Dragon Scales")]
+    [SerializeField] GameObject scaleBankObject;
     [SerializeField] Text scalesBankText; //rock resource 1 - improves fuel capacity
     [SerializeField] Text scalesBankShadow; //rock resource 1 - improves fuel capacity
     [SerializeField] Image[] scaleImages;
@@ -18,6 +19,7 @@ public class TokenManager : MonoBehaviour
     int scaleCurrent;
     int scaleBank;
     [Header("Dragon Fire")]
+    [SerializeField] GameObject fireBankObject;
     [SerializeField] Text firesBankText; //rock resource 2 - improves rocket speed;
     [SerializeField] Text firesBankShadow; //rock resource 2 - improves rocket speed;
     [SerializeField] Image[] fireImages;
@@ -27,6 +29,7 @@ public class TokenManager : MonoBehaviour
     int fireCurrent;
     int fireBank;
     [Header("Brain Rain")]
+    [SerializeField] GameObject rainBankObject;
     [SerializeField] Text rainsBankText; //dragon resource 1 - improves hull
     [SerializeField] Text rainsBankShadow; //dragon resource 1 - improves hull
     [SerializeField] Image[] rainImages;
@@ -35,7 +38,8 @@ public class TokenManager : MonoBehaviour
     [SerializeField] int rainMax;
     int rainCurrent;
     int rainBank;
-    [Header("Brain Sparks")] 
+    [Header("Brain Sparks")]
+    [SerializeField] GameObject sparkBankObject;
     [SerializeField] Text sparksBankText; //dragon resource 2 - improves fuel eff
     [SerializeField] Text sparksBankShadow; //dragon resource 2 - improves fuel eff
     [SerializeField] Image[] sparkImages;
@@ -76,12 +80,32 @@ public class TokenManager : MonoBehaviour
 
     private void ManageBankDisplay()
     {
+        if(scaleMax == 0)
+        {
+            scaleBankObject.SetActive(false);
+        }
+        else { scaleBankObject.SetActive(true); }
         scalesBankText.text = scaleBank.ToString();
         scalesBankShadow.text = scaleBank.ToString();
+        if (fireMax == 0)
+        {
+            fireBankObject.SetActive(false);
+        }
+        else { fireBankObject.SetActive(true); }
         firesBankText.text = fireBank.ToString();
         firesBankShadow.text = fireBank.ToString();
+        if (rainMax == 0)
+        {
+            rainBankObject.SetActive(false);
+        }
+        else { rainBankObject.SetActive(true); }
         rainsBankText.text = rainBank.ToString();
         rainsBankShadow.text = rainBank.ToString();
+        if (sparkMax == 0)
+        {
+            sparkBankObject.SetActive(false);
+        }
+        else { sparkBankObject.SetActive(true); }
         sparksBankText.text = sparkBank.ToString();
         sparksBankShadow.text = sparkBank.ToString();
     }
