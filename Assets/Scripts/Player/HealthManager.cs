@@ -18,6 +18,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] TokenManager tokenManager;
     [SerializeField] Fuel fuelManager;
     [SerializeField] CoinManager coinManager;
+    [SerializeField] DistanceTracker distanceTracker;
     
 
     //cached references
@@ -46,6 +47,7 @@ public class HealthManager : MonoBehaviour
         healthMax = gameData.healthMax;
         healthCurrent = healthMax;
         allResearch = new List<Research>(FindObjectsOfType<Research>());
+        distanceTracker = GetComponent<DistanceTracker>();
     }
 
     // Update is called once per frame
@@ -109,6 +111,7 @@ public class HealthManager : MonoBehaviour
         }
         fuelManager.CacheFuelStats();
         coinManager.CacheCoinInfo();
+        distanceTracker.CacheRocketSpeed();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void UpdateHealthData()
