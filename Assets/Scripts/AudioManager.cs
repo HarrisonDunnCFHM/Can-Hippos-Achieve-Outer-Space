@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Slider effectVol;
     [SerializeField] Slider musicVol;
 
+    PopOutMenu correctMenu;
+
     private void Awake()
     {
         int numberOfManagers = FindObjectsOfType<IncrementingData>().Length;
@@ -32,6 +34,22 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    public void ResetSliders()
+    {
+        var menus = FindObjectsOfType<PopOutMenu>();
+        foreach (PopOutMenu menu in menus)
+        {
+            if (menu.name == "Options Menu") { correctMenu = menu; }
+        }
+        var sliders = correctMenu.GetComponentsInChildren<Slider>();
+        foreach (Slider slider in sliders)
+        {
+            if (slider.name == "Master Volume") { masterVol = slider; }
+            if (slider.name == "SFX Volume") { effectVol = slider; }
+            if (slider.name == "Music Volume") { musicVol = slider; }
+        }
         masterVol.value = masterVolume;
         effectVol.value = effectVolume;
         musicVol.value = musicVolume;

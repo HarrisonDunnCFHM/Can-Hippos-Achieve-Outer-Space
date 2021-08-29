@@ -53,6 +53,7 @@ public class HippoRocket : MonoBehaviour
         myEngines.SetActive(false);
         gravityOn = false;
         audioManager = FindObjectOfType<AudioManager>();
+        audioManager.ResetSliders();
         myAudioSource.volume = audioManager.effectVolume * audioManager.masterVolume;
         hippoProfile = FindObjectOfType<HippoProfile>();
         boosterStatus = true;
