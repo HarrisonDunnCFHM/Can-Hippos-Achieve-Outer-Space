@@ -117,6 +117,7 @@ public class HealthManager : MonoBehaviour
         coinManager.CacheCoinInfo();
         distanceTracker.CacheRocketSpeed();
         gameData.experimentsRun++;
+        gameData.SaveGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void UpdateHealthData()
