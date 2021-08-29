@@ -23,6 +23,8 @@ public class HippoRocket : MonoBehaviour
     //cached references
     HealthManager myHealth;
     AudioManager audioManager;
+    HippoProfile hippoProfile;
+    Fuel myFuel;
     float moveSpeed;
     float xMin;
     float xMax;
@@ -37,11 +39,14 @@ public class HippoRocket : MonoBehaviour
     bool ascending;
     bool blastOff;
     bool gravityOn;
+    float fuelTimer;
+    bool boosterStatus;
 
     // Start is called before the first frame update
     void Start()
     {
         myHealth = GetComponent<HealthManager>();
+        myFuel = GetComponent<Fuel>();
         SetUpMoveBoundaries();
         moveSpeed = moveSpeedBase;
         ascending = true;
@@ -49,7 +54,12 @@ public class HippoRocket : MonoBehaviour
         gravityOn = false;
         audioManager = FindObjectOfType<AudioManager>();
         myAudioSource.volume = audioManager.effectVolume * audioManager.masterVolume;
+        hippoProfile = FindObjectOfType<HippoProfile>();
+        boosterStatus = true;
+        fuelTimer = .2f;
     }
+    
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -76,12 +86,12 @@ public class HippoRocket : MonoBehaviour
     }
 
 
-
     // Update is called once per frame
     void Update()
     {
         if (!blastOff) { return; }
         ControlShip();
+       // LowFuel();
         if (gravityOn) { transform.position = new Vector2(transform.position.x, transform.position.y - (gravity * Time.deltaTime)); }
         if (!ascending)
         {
@@ -94,6 +104,27 @@ public class HippoRocket : MonoBehaviour
         else
         {
             myAudioSource.volume = audioManager.effectVolume * 0.5f;
+        }
+    }
+
+    private void LowFuel()
+    {
+        if(myFuel.fuelPercent > 20) { return; }
+        if(fuelTimer > 0f)
+        {
+            fuelTimer -= Time.deltaTime;
+        }
+        else if (fuelTimer <= 0f && boosterStatus)
+        {
+            boosterStatus = false;
+            myEngines.SetActive(false);
+            fuelTimer = UnityEngine.Random.Range(0.05f, .2f);
+        }
+        else if(fuelTimer <= 0f && !boosterStatus)
+        {
+            boosterStatus = true;
+            myEngines.SetActive(true);
+            fuelTimer = UnityEngine.Random.Range(0.05f, .2f);
         }
     }
 
@@ -199,4 +230,6 @@ public class HippoRocket : MonoBehaviour
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - yTopScreenPadding;
 
     }
+
+
 }

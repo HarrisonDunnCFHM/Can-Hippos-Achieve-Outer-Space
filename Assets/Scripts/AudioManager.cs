@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] [Range(0f, 1f)] public float musicVolume;
     [SerializeField] [Range(0f, 1f)] public float effectVolume;
     [SerializeField] [Range(0f, 1f)] public float masterVolume;
+    [SerializeField] Slider masterVol;
+    [SerializeField] Slider effectVol;
+    [SerializeField] Slider musicVol;
 
     private void Awake()
     {
@@ -27,12 +32,24 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        masterVol.value = masterVolume;
+        effectVol.value = effectVolume;
+        musicVol.value = musicVolume;
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        musicSource.volume = musicVolume * masterVolume;
+        musicSource.volume = musicVolume * masterVolume * .5f;
+        UpdateSliders();
+    }
+
+    private void UpdateSliders()
+    {
+        masterVolume = masterVol.value;
+        effectVolume = effectVol.value;
+        musicVolume = musicVol.value;
     }
 }

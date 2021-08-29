@@ -6,13 +6,14 @@ public class TokenCollector : MonoBehaviour
 {
 
     [SerializeField] TokenManager tokenManager;
+    HippoProfile hippoProfile;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        hippoProfile = FindObjectOfType<HippoProfile>();
     }
 
     // Update is called once per frame
@@ -30,6 +31,7 @@ public class TokenCollector : MonoBehaviour
                 if (collectedScale)
                 {
                     Destroy(collidedObject);
+                    StartCoroutine(ShortLaugh());
                     return true;
                 }
                 else { return false; }
@@ -38,6 +40,7 @@ public class TokenCollector : MonoBehaviour
                 if (collectedFire)
                 {
                     Destroy(collidedObject);
+                    StartCoroutine(ShortLaugh());
                     return true;
                 }
                 else { return false; }
@@ -46,6 +49,7 @@ public class TokenCollector : MonoBehaviour
                 if (collectedRain)
                 {
                     Destroy(collidedObject);
+                    StartCoroutine(ShortLaugh());
                     return true;
                 }
                 else { return false; }
@@ -54,6 +58,7 @@ public class TokenCollector : MonoBehaviour
                 if (collectedSpark)
                 {
                     Destroy(collidedObject);
+                    StartCoroutine(ShortLaugh());
                     return true;
                 }
                 else { return false; }
@@ -61,5 +66,12 @@ public class TokenCollector : MonoBehaviour
                 Debug.Log("no tag");
                 return false;
         }
+    }
+
+    private IEnumerator ShortLaugh()
+    {
+        hippoProfile.SetLaugh(true);
+        yield return new WaitForSeconds(1f);
+        hippoProfile.SetLaugh(false);
     }
 }

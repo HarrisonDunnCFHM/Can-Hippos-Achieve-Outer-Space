@@ -77,9 +77,9 @@ public class CoinManager : MonoBehaviour
         coinsToEarn += coinsEarned;
     }
 
-    public void UpgradeCoinDivider(int awardedDivider)
+    public void UpgradeCoinDivider()
     {
-        coinDivider -= awardedDivider;
+        coinDivider--;
     }
     public void UpgradeCoinMultiplier()
     {

@@ -8,7 +8,7 @@ public class Research : MonoBehaviour
 {
     //config parameters
     [SerializeField] string researchName;
-    [SerializeField] int researchIndex;
+    [SerializeField] public int researchIndex;
     [SerializeField] Text researchText;
     [SerializeField] int startLevel;
     [SerializeField] int researchMax;
@@ -35,7 +35,7 @@ public class Research : MonoBehaviour
     CoinManager coinManager;
     int currentCoinCost;
     int currentTokenCost;
-    int researchLevel;
+    public int researchLevel;
     TokenManager myTokenManager;
     IncrementingData gameData;
     Fuel fuelManager;
@@ -52,13 +52,14 @@ public class Research : MonoBehaviour
         currentCoinCost = startCoinCost;
         currentTokenCost = startTokenCost;
         gameData = FindObjectOfType<IncrementingData>();
+        //Debug.Log("Loading unlock status for ResearchID " + researchIndex + ". Saved status was " + gameData.researchUnlocked[researchIndex] + " and has been saved for this run.");
+        unlocked = gameData.researchUnlocked[researchIndex];
         researchLevel = gameData.researchLevels[researchIndex];
         if (gameData.researchCoinCost[researchIndex] == 0) { currentCoinCost = startCoinCost; }
         else { currentCoinCost = gameData.researchCoinCost[researchIndex]; }
         if (gameData.researchTokenCost[researchIndex] == 0) { currentTokenCost = startTokenCost; }
         else { currentTokenCost = gameData.researchTokenCost[researchIndex]; }
         if (gameData.researchAward[researchIndex] != 0) { awardBase = gameData.researchAward[researchIndex]; }
-        unlocked = gameData.researchUnlocked[researchIndex];
         if (!unlocked)
         {
             gameObject.SetActive(false);
@@ -165,7 +166,7 @@ public class Research : MonoBehaviour
     {
         var awardAmount = BuyResearch();
         if (awardAmount == 0) { return; }
-        coinManager.UpgradeCoinDivider(awardAmount);
+        coinManager.UpgradeCoinDivider();
     }
 
     public void BuyCoinMultiplier()
@@ -179,8 +180,8 @@ public class Research : MonoBehaviour
     {
         if (researchLevel == researchMax) { return 0; }
         if (!coinManager.CheckAvailable(currentCoinCost)) { return 0; }
-        var enoughTokens = tokenManager.SpendTokens(currentTokenCost, tokenCostType);
-        if (!enoughTokens) { return 0; }
+        if (!tokenManager.CheckAvailable(currentTokenCost, tokenCostType)) { return 0; }
+        tokenManager.SpendTokens(currentTokenCost, tokenCostType);
         coinManager.SpendCoins(currentCoinCost);
         currentCoinCost = Mathf.RoundToInt(coinCostGrowth * currentCoinCost);
         if (currentTokenCost < tokenCostMax)
@@ -188,6 +189,7 @@ public class Research : MonoBehaviour
             currentTokenCost += tokenCostGrowth;
         }
         researchLevel++;
+        gameData.researchLevels[researchIndex]++;
         UnlockResearch(unlocks);
         return awardBase;
     }
@@ -198,15 +200,17 @@ public class Research : MonoBehaviour
         {
             unlockedResearches[i].unlocked = true;
             unlockedResearches[i].gameObject.SetActive(true);
+            gameData.researchUnlocked[unlockedResearches[i].researchIndex] = true;
         }
     }
 
     public void CacheResearchStats()
     {
-        gameData.researchLevels[researchIndex] = researchLevel;
+        //gameData.researchUnlocked[researchIndex] = unlocked;
+        //Debug.Log("Saved unlock status to gameData. Unlock status is now " + gameData.researchUnlocked[researchIndex] + " for researchindex " + researchIndex);
         gameData.researchCoinCost[researchIndex] = currentCoinCost;
         gameData.researchTokenCost[researchIndex] = currentTokenCost;
         gameData.researchAward[researchIndex] = awardBase;
-        gameData.researchUnlocked[researchIndex] = unlocked;
+        //gameData.researchLevels[researchIndex] = researchLevel;
     }
 }

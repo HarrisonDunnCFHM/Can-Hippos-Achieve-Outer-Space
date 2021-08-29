@@ -29,6 +29,7 @@ public class HealthManager : MonoBehaviour
     Animator myAnimator;
     IncrementingData gameData;
     List<Research> allResearch;
+    HippoProfile hippoProfile;
     
     
     // Start is called before the first frame update
@@ -48,6 +49,7 @@ public class HealthManager : MonoBehaviour
         healthCurrent = healthMax;
         allResearch = new List<Research>(FindObjectsOfType<Research>());
         distanceTracker = GetComponent<DistanceTracker>();
+        hippoProfile = FindObjectOfType<HippoProfile>();
     }
 
     // Update is called once per frame
@@ -97,8 +99,10 @@ public class HealthManager : MonoBehaviour
             fuel.OutOfFuel(); //this function will toggle the retry menu open
             Time.timeScale = 1f;
             invulnerable = true;
+            hippoProfile.SetFear(invulnerable);
         }
         invulnerable = true;
+        hippoProfile.SetFear(invulnerable);
     }
 
     public void ResetLevel()
@@ -112,6 +116,7 @@ public class HealthManager : MonoBehaviour
         fuelManager.CacheFuelStats();
         coinManager.CacheCoinInfo();
         distanceTracker.CacheRocketSpeed();
+        gameData.experimentsRun++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void UpdateHealthData()
@@ -135,6 +140,7 @@ public class HealthManager : MonoBehaviour
     private void InvulnerabilityReset()
     {
         if (!invulnerable) { return; }
+        if (healthCurrent <= 0) { return; }
         if (invulnerable)
         {
             invulnerableTimer -= Time.deltaTime;
@@ -142,8 +148,9 @@ public class HealthManager : MonoBehaviour
         if (invulnerableTimer <=0 )
         {
             invulnerable = false;
-            myAnimator.SetBool("invulnerable", false);
+            myAnimator.SetBool("invulnerable", invulnerable);
             invulnerableTimer = invulnerableCoolDown;
+            hippoProfile.SetFear(invulnerable);
         }
 
     }

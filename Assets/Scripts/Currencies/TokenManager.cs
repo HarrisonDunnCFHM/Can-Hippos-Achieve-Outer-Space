@@ -265,7 +265,7 @@ public class TokenManager : MonoBehaviour
                     scaleBank -= toRemove;
                     return true;
                 }
-                else { Debug.Log("insufficient scales."); return false;  }
+                else {  return false;  }
             case TokenType.Fire:
                 if (toRemove <= fireBank)
                 {
@@ -312,5 +312,24 @@ public class TokenManager : MonoBehaviour
         sparkMax++;
     }
 
-
+    public bool CheckAvailable(int toRemove, TokenType tokenType)
+    {
+        switch(tokenType)
+        {
+            case TokenType.Scale:
+                if(toRemove <= scaleBank) { return true; }
+                else { return false; }
+            case TokenType.Fire:
+                if (toRemove <= fireBank) { return true; }
+                else { return false; }
+            case TokenType.Rain:
+                if (toRemove <= rainBank) { return true; }
+                else { return false; }
+            case TokenType.Spark:
+                if (toRemove <= sparkBank) { return true; }
+                else { return false; }
+            default:
+                return false;
+        }
+    }
 }

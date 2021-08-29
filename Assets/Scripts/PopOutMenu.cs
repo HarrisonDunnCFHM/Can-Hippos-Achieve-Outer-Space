@@ -19,12 +19,14 @@ public class PopOutMenu : MonoBehaviour
     Vector2 myTarget;
     public bool isExtending;
     public bool isRetracting;
+    IncrementingData gameData;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameData = FindObjectOfType<IncrementingData>();
         transform.localPosition = myHomePos;
-        if (startingMenu) { ToggleMenu(); }
+        if (startingMenu && gameData.experimentsRun > 0) { ToggleMenu(); }
     }
 
     // Update is called once per frame
@@ -87,7 +89,7 @@ public class PopOutMenu : MonoBehaviour
                     {
                         transform.localPosition = new Vector2(transform.localPosition.x + (moveSpeed * Time.deltaTime), transform.localPosition.y);
                     }
-                    if (transform.localPosition.x < myHomePos.x)
+                    if (transform.localPosition.x > myHomePos.x)
                     {
                         transform.localPosition = myHomePos;
                         isRetracting = false;

@@ -10,20 +10,27 @@ public class Fuel : MonoBehaviour
     [SerializeField] float fuelBurnRate;
     [SerializeField] Slider fuelSlider;
     [SerializeField] Text fuelText;
+    [SerializeField] Text fuelName;
+    [SerializeField] Text fuelNameShadow;
     [SerializeField] Vector2 fuelGaugeHomePos;
     [SerializeField] PopOutMenu retryMenu;
+    [SerializeField] Color normalText;
+    [SerializeField] Color dangerText;
 
     //cached refs
     float fuelCurrent;
     RectTransform fuelTransform;
     float fuelGaugeXPos;
-    float fuelPercent;
+    public float fuelPercent;
     List<ScrollingBackground> scrollingBackGrounds;
     HippoRocket hippoRocket;
     DistanceTracker distanceTracker;
     bool blastOff;
     IncrementingData gameData;
     bool outOfFuel;
+    float fuelTimer = .2f;
+    bool flashStatus;
+    HippoProfile hippoProfile;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +50,8 @@ public class Fuel : MonoBehaviour
         var newXPos = fuelGaugeXPos + (50 * ((fuelMax - 100)/100));
         fuelSlider.transform.localPosition = new Vector2(newXPos, fuelSlider.transform.localPosition.y);
         outOfFuel = false;
+        flashStatus = true;
+        hippoProfile = FindObjectOfType<HippoProfile>();
     }
 
     // Update is called once per frame
@@ -56,7 +65,10 @@ public class Fuel : MonoBehaviour
         fuelPercent = (fuelCurrent / fuelMax) * 100;
         fuelText.text = fuelPercent.ToString("F1") + "%";
         fuelSlider.value = fuelCurrent;
+
+        if (distanceTracker.tier5complete) { blastOff = false; }
         if (!blastOff) { return; }
+        LowFuel();
         if (!outOfFuel) { fuelCurrent -= fuelBurnRate * Time.deltaTime; }
         if (fuelCurrent <= 0)
         {
@@ -64,6 +76,30 @@ public class Fuel : MonoBehaviour
             if (!outOfFuel) { OutOfFuel(); }
         }
     }
+
+    private void LowFuel()
+    {
+        if (fuelPercent > 20) { return; }
+        if (fuelTimer > 0f)
+        {
+            fuelTimer -= Time.deltaTime;
+        }
+        else if (fuelTimer <= 0f && flashStatus)
+        {
+            flashStatus = false;
+            fuelName.text = "Fuel Low!!!" ;
+            fuelNameShadow.text = "Fuel Low!!!";
+            fuelTimer = .2f;
+        }
+        else if (fuelTimer <= 0f && !flashStatus)
+        {
+            flashStatus = true;
+            fuelName.text = "Fuel Low!";
+            fuelNameShadow.text = "Fuel Low!";
+            fuelTimer =  .2f;
+        }
+    }
+
     public void UpgradeFuel(int upgradeValue)
     {
         fuelMax += upgradeValue;
@@ -97,6 +133,7 @@ public class Fuel : MonoBehaviour
         {
             scrollingBackground.StopAscending();
         }
+        hippoProfile.SetFear(true);
         retryMenu.ToggleMenu();
     }
 

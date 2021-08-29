@@ -222,8 +222,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.22822624, b: 0, a: 1}
-      maxColor: {r: 1, g: 0.9348358, b: 0, a: 1}
+      minColor: {r: 0, g: 0.43849897, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.4198113, b: 0.84020984, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4833,7 +4833,7 @@ GameObject:
   - component: {fileID: 2315114626181489286}
   - component: {fileID: 2315114626181489305}
   m_Layer: 8
-  m_Name: Dragon
+  m_Name: Space Dragon
   m_TagString: Scale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4894,7 +4894,7 @@ SpriteRenderer:
   m_SortingLayerID: 1682227353
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7366081574288129346, guid: 821384b8abd2d1c439c8a4f78a6036e0, type: 3}
+  m_Sprite: {fileID: 4753061014961400529, guid: b05a56ee9e9bd6941901ec090f27644f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4915,7 +4915,7 @@ Animator:
   m_GameObject: {fileID: 2315114626181489283}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef2b2c5c61a8c5347845c4d80677222b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7755b1dc51b1e1040b655c98278b6455, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4936,9 +4936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b24cf71c10b73749891380b1dc1822c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2.5
   myFireBreather: {fileID: 2126603237}
-  attackRange: 0.8
+  attackRange: 1
   myAttacks:
   - {fileID: 8300000, guid: 21b733678e6f91742868ffe7e511a835, type: 3}
   - {fileID: 8300000, guid: b944ec734e774484b9d5c5742f80b1d8, type: 3}
